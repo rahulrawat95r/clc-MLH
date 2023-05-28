@@ -4777,3 +4777,17 @@
 {"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/checkAvailability | IP -> ::1 | Fetched Available Seats | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:27"}
 {"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admitStudentForm | IP -> ::1 | Student 220310101644 Admitted | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:38"}
 {"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admitStudentPage | IP -> ::1 | Rendering Admit new Student Page | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:39"}
+{"label":"[ LOGS ]","level":"warn","message":"| Request -> /admin/admitStudentPage | IP -> ::1 | NO Login |","metadata":{},"timestamp":"23-05-28 21:05:53"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/loginform | IP -> ::1 | SuccessFul Login | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:63"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::1 | Dashboard Rendered | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:66"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::1 | Chart data for the dashboard | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:98"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admitStudentPage | IP -> ::1 | Rendering Admit new Student Page | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:98"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/searchStudent | IP -> ::1 | Student Found | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:46"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/checkVacantSubCategory | IP -> ::1 | Vacant Sub Category Data Fetched | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:25"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/checkVacantBranches | IP -> ::1 | Fetched Vacant Branches | Admin -> kake | ","metadata":{},"timestamp":"23-05-28 21:05:14"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/checkAvailability | IP -> ::1 | Fetched Available Seats | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:21"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admitStudentForm | IP -> ::1 | Student 220310088067 Admitted | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:16"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admitStudentPage | IP -> ::1 | Rendering Admit new Student Page | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:17"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admittedStudentPage | IP -> ::1 | Admitted Student Page Rendered | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:15"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::1 | Years List Fetched | Admin -> kake ","metadata":{},"timestamp":"23-05-28 21:05:02"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admittedStudentData | IP -> ::1 | Fetched Admitted Student Data | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:68"}

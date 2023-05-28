@@ -715,9 +715,10 @@ $(function () {
     fetch(uri)
       .then((response) => response.json())
       .then((dataServer) => {
-        // console.log (data);
-        data["datasets"][0]["data"] = dataServer;
-
+        data["datasets"][0]["data"] = dataServer['data'];
+        data['labels'] = dataServer['branches'];
+        
+        console.log (data);
         if ($("#barChart").length) {
           var barChartCanvas = $("#barChart").get(0).getContext("2d");
           // This will get the first returned node in the jQuery collection.

@@ -4791,3 +4791,34 @@
 {"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admittedStudentPage | IP -> ::1 | Admitted Student Page Rendered | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:15"}
 {"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::1 | Years List Fetched | Admin -> kake ","metadata":{},"timestamp":"23-05-28 21:05:02"}
 {"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admittedStudentData | IP -> ::1 | Fetched Admitted Student Data | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:68"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::1 | Dashboard Rendered | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:10"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::1 | Chart data for the dashboard | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:37"}
+{"label":"[ LOGS ]","level":"warn","message":"| Request -> /admin/dashboard | IP -> ::1 | No Login |","metadata":{},"timestamp":"23-05-28 21:05:81"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/loginform | IP -> ::1 | SuccessFul Login | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:92"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::1 | Dashboard Rendered | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:94"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::1 | Chart data for the dashboard | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:08"}
+{"label":"[ LOGS ]","level":"warn","message":"| Request -> /admin/dashboard | IP -> ::1 | No Login |","metadata":{},"timestamp":"23-05-28 21:05:97"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/loginform | IP -> ::1 | SuccessFul Login | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:34"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::1 | Dashboard Rendered | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:36"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::1 | Chart data for the dashboard | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:68"}
+{"label":"[ LOGS ]","level":"warn","message":"| Request -> /admin/dashboard | IP -> ::1 | No Login |","metadata":{},"timestamp":"23-05-28 21:05:39"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/loginform | IP -> ::1 | SuccessFul Login | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:68"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::1 | Dashboard Rendered | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:70"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::1 | Chart data for the dashboard | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:06"}
+{"label":"[ LOGS ]","level":"warn","message":"| Request -> /admin/dashboard | IP -> ::1 | No Login |","metadata":{},"timestamp":"23-05-28 21:05:91"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/loginform | IP -> ::1 | SuccessFul Login | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:47"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::1 | Dashboard Rendered | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:50"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::ffff:127.0.0.1 | Chart data for the dashboard | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:88"}
+{"label":"[ LOGS ]","level":"warn","message":"| Request -> /admin/dashboard | IP -> ::ffff:127.0.0.1 | No Login |","metadata":{},"timestamp":"23-05-28 21:05:40"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/loginform | IP -> ::ffff:127.0.0.1 | SuccessFul Login | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:38"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::ffff:127.0.0.1 | Dashboard Rendered | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:41"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::ffff:127.0.0.1 | Chart data for the dashboard | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:77"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::1 | Dashboard Rendered | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:36"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::1 | Chart data for the dashboard | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:50"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::1 | Dashboard Rendered | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:31"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::1 | Chart data for the dashboard | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:48"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/filesSection | IP -> ::1 | Data Input Files | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:79"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/uploadVacancy | IP -> ::1 | Vacacy Uploaded | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:17"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/filesSection | IP -> ::1 | Files Uploaded Sucess | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:25"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::1 | Dashboard Rendered | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:26"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::1 | Chart data for the dashboard | Admin -> kake |","metadata":{},"timestamp":"23-05-28 21:05:41"}

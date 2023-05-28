@@ -890,7 +890,7 @@ router.get("/getChartData", (req, res) => {
   year = year.getFullYear();
 
   pool.query(
-    "SELECT `seats` from `total_seats` where year = ? order by branch",
+    "SELECT `seats`,`branch` from `total_seats` where year = ? order by branch",
     [year],
     (err, obj) => {
       if (err) {
@@ -900,14 +900,21 @@ router.get("/getChartData", (req, res) => {
         res.send([]);
       } else {
         let sendData = [];
+        let send = {};
+        send['branches'] = [];
 
         for (i = 0; i < obj.length; i++) {
           sendData.push(obj[i].seats);
+          send['branches'].push (obj[i].branch);
         }
+
+        send['data'] = sendData;
+
+      
         // console.log (sendData.length);
         let mes = `| Request -> /admin/getChartData | IP -> ${req.ip} | Chart data for the dashboard | Admin -> ${req.session.username} |`;
         logger.customLogger.log("info", mes);
-        res.send(sendData);
+        res.send(send);
       }
     }
   );

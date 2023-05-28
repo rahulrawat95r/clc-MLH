@@ -4624,3 +4624,12 @@
 {"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::1 | Years List Fetched | Admin -> kake ","metadata":{},"timestamp":"23-05-28 15:05:61"}
 {"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/categorySeatsData | IP -> ::1 | UR Seats Data Fetched | Admin -> kake | ","metadata":{},"timestamp":"23-05-28 15:05:33"}
 {"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/addAdminPage | IP -> ::1 | New Admin Page Rendered | Admin -> kake |","metadata":{},"timestamp":"23-05-28 15:05:23"}
+{"label":"[ LOGS ]","level":"warn","message":"| Request -> /admin/feeSubmissionPage | IP -> ::1 | No Login | ","metadata":{},"timestamp":"23-05-28 20:05:08"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/loginform | IP -> ::1 | SuccessFul Login | Admin -> kake |","metadata":{},"timestamp":"23-05-28 20:05:04"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::1 | Dashboard Rendered | Admin -> kake |","metadata":{},"timestamp":"23-05-28 20:05:07"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::1 | Chart data for the dashboard | Admin -> kake |","metadata":{},"timestamp":"23-05-28 20:05:30"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/seatConversion | IP -> ::1 | Rendered Seats Conversion Page | Admin -> kake | ","metadata":{},"timestamp":"23-05-28 20:05:85"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::1 | Years List Fetched | Admin -> kake ","metadata":{},"timestamp":"23-05-28 20:05:74"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/findVacantCategory | IP -> ::1 | Fetched Vacant Category Data | Admin -> kake | ","metadata":{},"timestamp":"23-05-28 20:05:70"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/checkVacantSubCategory | IP -> ::1 | Vacant Sub Category Data Fetched | Admin -> kake |","metadata":{},"timestamp":"23-05-28 20:05:31"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/fetchTableConversion | IP -> ::1 | Fetched Table Data Conversion | Admin -> kake ","metadata":{},"timestamp":"23-05-28 20:05:24"}

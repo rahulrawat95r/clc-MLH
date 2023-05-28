@@ -891,6 +891,7 @@ function AddSubCategoryConversion() {
 
   let x = "/admin/checkVacantSubCategory?category=" + cat + "&year=" + year;
 
+  
   fetch(x)
     .then((response) => response.json())
     .then((data) => {

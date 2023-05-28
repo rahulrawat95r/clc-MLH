@@ -3,12 +3,18 @@ var quota = ["TS", "NCC", "HC", "FF", "S", "X"];
 var gender = ["F", "OP"];
 
 function addingCattoOption(a) {
-  console.log (a);
+  // console.log (a);
   document.getElementById("convertToCatOptions").innerHTML = "";
+
+  let fetchingTable = "";
+
+  if (document.getElementsByClassName('fetchBtn')[0]){
+    fetchingTable = `document.getElementsByClassName('fetchBtn')[0].click();`;
+  }
 
     if (a == "EWS" || a == "AIUR"){
       document.getElementById("convertToCatOptions").innerHTML =
-        `<span class='dropdown-item' onclick="updateCat('UR | X | OP','selToCategory')" style='cursor: pointer;'>UR | X | OP</span>`;
+        `<span class='dropdown-item' onclick="updateCat('UR | X | OP','selToCategory') ; ${fetchingTable}" style='cursor: pointer;'>UR | X | OP</span>`;
     }
 
     else{
@@ -34,7 +40,7 @@ function addingCattoOption(a) {
           from_option[1] +
           ` | ` +
           "OP" +
-          `','selToCategory')" style='cursor: pointer;'>` +
+          `','selToCategory') ; ${fetchingTable}" style='cursor: pointer;'>` +
           from_option[0] +
           ` | ` +
           from_option[1] +
@@ -51,7 +57,7 @@ function addingCattoOption(a) {
           `<span class='dropdown-item' onclick="updateCat('` +
           from_option[0] +
           ` | X | OP` +
-          `','selToCategory')" style='cursor: pointer;'>` +
+          `','selToCategory'); ${fetchingTable}" style='cursor: pointer;'>` +
           from_option[0] +
           ` | X | OP` +
           `</span>`;
@@ -64,7 +70,7 @@ function addingCattoOption(a) {
         `<span class='dropdown-item' onclick="updateCat('` +
         category[i] +
         ` | X | OP` +
-        `','selToCategory')" style='cursor: pointer;'>` +
+        `','selToCategory') ; ${fetchingTable}" style='cursor: pointer;'>` +
         category[i] +
         ` | X | OP` +
         `</span>`;
@@ -213,7 +219,7 @@ function addConvertToCategories(a) {
   // Checking for the female
 
   if (genderM == "F") {
-    console.log("f wala");
+    // console.log("f wala");
     document.getElementById("convertToCatOptions").innerHTML =
       `<span class='dropdown-item' onclick="updateCat('` +
       categoryM +

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Add Admin </title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" />
+
+
+    <!--Style for the table -->
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+  
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap4.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.print.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.2/css/buttons.dataTables.min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="/assets/css/style.css"> -->
+
+    <style>
+      .customName{
+        padding-left: 3.5vw;
+        padding-right: 3.5vw;
+        color: #9425d2;
+        text-align: center;
+      }
+
+      #logoImg{
+        height: 80px;
+        width: 100px;
+      }
+
+      #logoImgMini{
+        height: 70px;
+        width: 100px;
+      }
+
+      .hidingOptions{
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:/partials/_navbar.html -->
+      
+      <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+          <a class="navbar-brand brand-logo" href="/admin/dashboard"><img id="logoImg" src="https://web.mitsgwalior.in/images/mits-logo.png" alt="logo" /></a>
+          <a class="navbar-brand brand-logo-mini" href="/admin/dashboard"><img id="logoImgMini" src="https://web.mitsgwalior.in/images/mits-logo.png" alt="logo" /></a>
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-stretch">
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <span class="mdi mdi-menu"></span>
+          </button>
+
+          <div class="search-field d-none d-md-block">
+            <form class="d-flex align-items-center h-100">
+              <div class="input-group">
+                <div class="input-group-prepend bg-transparent customName">
+                  <h5 class="display-5">Madhav Institute of Technology &amp; Science, Gwalior (M.P.), INDIA <br> 
+                    माधव प्रौद्योगिकी एवं विज्ञान संस्थान, ग्वालियर (म.प्र.), भारत </h5>
+                </div>
+                
+              </div>
+            </form>
+          </div>
+          
+          <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item nav-profile dropdown">
+              <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="nav-profile-img">
+                  <img src="/assets/images/admin/<%=adminImg%>" alt="image">
+                  <span class="availability-status online"></span>
+                </div>
+                <div class="nav-profile-text">
+                  <p class="mb-1 text-black"><%=adminName%></p>
+                </div>
+              </a>
+              <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
+                
+                <a class="dropdown-item" href="/admin/logout">
+                  <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
+              </div>
+            </li>
+            <li class="nav-item d-none d-lg-block full-screen-link">
+              <a class="nav-link">
+                <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
+              </a>
+            </li>
+
+            <li class="nav-item nav-logout d-none d-lg-block">
+              <a class="nav-link" href="/admin/logout">
+                <i class="mdi mdi-power"></i>
+              </a>
+            </li>
+            
+          </ul>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+            <span class="mdi mdi-menu"></span>
+          </button>
+        </div>
+      </nav>
+
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:/partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+          <ul class="nav">
+            <li class="nav-item nav-profile">
+              <a href="#" class="nav-link">
+                <div class="nav-profile-image">
+                  <img src="/assets/images/admin/<%=adminImg%>" alt="profile">
+                  <span class="login-status online"></span>
+                  <!--change to offline or busy as needed-->
+                </div>
+                <div class="nav-profile-text d-flex flex-column">
+                  <span class="font-weight-bold mb-2"><%=adminName%></span>
+                  <span class="text-secondary text-small" id ="adminType"><%=adminType%></span>
+                </div>
+                <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+              </a>
+            </li>
+            
+            <li class="nav-item hidingOptions" id="dashboardHide">
+              <a class="nav-link" href="/admin/dashboard">
+                <span class="menu-title">Dashboard</span>
+                <i class="mdi mdi-home menu-icon"></i>
+              </a>
+            </li>
+
+            <li class="nav-item hidingOptions" id="admittedHide">
+              <a class="nav-link" href="/admin/admittedStudentPage">
+                <span class="menu-title">Admitted Students</span>
+                <i class="mdi mdi-account-check menu-icon"></i>
+              </a>
+            </li>
+
+
+            <li class="nav-item hidingOptions" id="feeSubmissionHide">
+              <a class="nav-link" href="/admin/feeSubmissionPage">
+                <span class="menu-title">Fee Status</span>
+                <i class="mdi mdi-bank menu-icon"></i>
+              </a>
+            </li>
+
+            <li class="nav-item hidingOptions" id="seatStatusHide">
+              <a class="nav-link" href="/admin/categorySeats">
+                <span class="menu-title">Seats Status</span>
+                <i class="mdi mdi-ticket-account menu-icon"></i>
+              </a>
+            </li>
+
+            <li class="nav-item hidingOptions" id="admissionHide">
+              <a class="nav-link" href="/admin/admitStudentPage">
+                <span class="menu-title">Admit Student</span>
+                <i class="mdi mdi-star-circle menu-icon"></i>
+              </a>
+            </li>
+
+            <li class="nav-item hidingOptions" id="seatConversionHide">
+              <a class="nav-link" href="/admin/seatConversion">
+                <span class="menu-title">Seat Conversion</span>
+                <i class="mdi mdi-autorenew menu-icon"></i>
+              </a>
+            </li>
+
+            <li class="nav-item hidingOptions" id="addAdminHide">
+              <a class="nav-link" href="/admin/addAdminPage">
+                <span class="menu-title">Add Admin</span>
+                <i class="mdi mdi-worker menu-icon"></i>
+              </a>
+            </li>
+
+
+            <li class="nav-item hidingOptions" id="uploadHide">
+              <a class="nav-link" href="/admin/filesSection">
+                <span class="menu-title">Upload Files</span>
+                <i class="mdi mdi-cloud-upload menu-icon"></i>
+              </a>
+            </li>
+
+            
+          </ul>
+        </nav>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+
+            <div class="row">
+                <div class="col-12 grid-margin stretch-card">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title">Add Admin </h4>
+                     
+                        <form class="forms-sample" id="AddAdminForm" method="post" action="/admin/createAdminForm" enctype="multipart/form-data">
+                          <div class="form-group">
+                            <label for="exampleInputName1">Name</label>
+                            <input type="text" class="form-control" id="exampleInputName1" required name="name" placeholder="Name">
+                          </div>
+
+                          <div class="form-group">
+                            <label for="exampleInputEmail3">Username</label>   <!-- From ApiJs (checkUsername) -->
+                            <input type="text" class="form-control" oninput="checkUsername(this) " name="username" required id="exampleInputEmail3" placeholder="User Name">
+                          </div>
+
+                          <div class="form-group">
+                            <label for="exampleInputPassword4">Password</label>
+                            <input type="password" name="password" class="form-control" required id="exampleInputPassword4" placeholder="Password">
+                          </div>
+
+
+                          <div class="form-group">
+                            <label>Profile Pic Upload</label>
+                            
+                            <div class="input-group col-xs-12">
+                              <input type="file" class="form-control file-upload-info" id="fileInput" name="img" accept="image/x-png,image/gif,image/jpeg,image/jpg" placeholder="Upload Image">
+                              
+                            </div>
+                          </div>
+
+                        <h5>Select Admin Type</h5>
+                          <div class="form-group">
+                            <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id = "selAdmin">Select Admin</span></button>
+                            <div class="dropdown-menu">
+                              
+                              <!-- Both functions from myCustomJs -->
+                              <span class="dropdown-item" onclick="updateCat('Super Admin','selAdmin'), input_update('account_type','Super')" style="cursor: pointer;">Super Admin</span>
+                              <span class="dropdown-item" onclick="updateCat('Accountant','selAdmin'), input_update('account_type','Accountant')" style="cursor: pointer;">Accountant</span>
+                              <span class="dropdown-item" onclick="updateCat('Admission','selAdmin'), input_update('account_type','Admission')" style="cursor: pointer;">Admission</span>
+                              
+
+                            </div>
+                          </div>
+
+                          <!-- Acc Type field -->
+
+                          <input type="text" name="acctype" id="account_type" hidden value = "">
+
+
+                          <button type="button" onclick="SubmitTheForm('AddAdminForm')" class="btn btn-gradient-primary btn-fw" id = "submitBtn">Submit</button>
+                          <button type="reset" class="btn btn-gradient-danger btn-fw" >Reset</button>
+
+                          <br>
+                          <br>  
+                          <div id="alertwale">
+                            <div class="alert alert-danger" id = "alertMsg" role="alert"> </div>
+
+                          </div>
+
+                          <div class="alert alert-success" id = "successAlert" role="alert"> </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            
+
+            
+                <div class="col-12 grid-margin stretch-card">
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title">Admins</h4>
+                      
+                      </p>
+                      <table class="table table-bordered" id = "myTable" style="width:100%">
+                        <thead>
+                          <tr>
+                            <th>S. No</th>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Username</th>
+                            <th>Password</th>
+                            <th>Active</th>
+                            <th>Activate / Delete</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <% let i = 1; data.map((item)=>{ %>
+                            
+
+                            <tr id="ttrow">
+                              <td scope="row">
+                                <%=i%>
+                              
+                              </td>
+                              <td scope="row">
+                                <%=item.name%>
+                              </td>
+                              <td scope="row">
+                                <%=item.type%>
+                              </td>
+        
+                              <td scope="row">
+                                <%=item.username%>
+                              </td>
+                              <td scope="row">
+                                <%=item.password%>
+                              </td>
+                              <td scope="row">
+                                <%=item.active%>
+                              </td>
+                              <td scope="row">
+                                <% if (item.active == "Y")
+                                {
+                                  act = "Delete"; url = "/admin/adminActivationFeature?action=delete&username=" + item.username;
+                                }
+
+                                 else
+                                 {
+                                    act = "Activate";url = "/admin/adminActivationFeature?action=activate&username=" + item.username;
+                                 }
+
+                                 if (item.type == "Super Admin"){
+                                    url = "";
+                                    dis = "disabled";
+                                 }
+
+                                 else{
+                                    dis = "";
+                                 }
+                                 %>
+                                <button class="btn btn-danger <%=dis%>" onclick="DeleteAlert ('<%=url%>')" ><%=act%></button>
+                                <!-- <input type="text" name="" id="actionDelete12" value = '<%=url%>' hidden> -->
+                              </td>
+
+                            </tr>
+                            <% i++ ; }) %>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  </div>
+        
+          <!-- content-wrapper ends -->
+          <!-- partial:/partials/_footer.html -->
+          <footer class="footer">
+            <div class="container-fluid d-flex justify-content-between">
+              <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright © MITS Gwalior <span id = "copyYear"></span></span>
+              
+            </div>
+          </footer>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="/assets/js/off-canvas.js"></script>
+    <script src="/assets/js/hoverable-collapse.js"></script>
+    <script src="/assets/js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <!-- End custom js for this page -->
+
+
+    <!-- Script for the table-->
+
+    <script src="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap4.min.js"></script>
+    
+    
+    <script>
+      $(document).ready(function () {
+          $('#myTable').DataTable({
+              dom: 'Bfrtip',
+              buttons: [
+                  {
+                      extend : 'pdfHtml5',
+                      title : `Admin List`,
+                      orientation : 'portrait',
+                      pageSize : 'A4', // You can also use "A1","A2" or "A3", most of the time "A3" works the best.
+                      text : 'PDF',
+                      titleAttr : 'PDF'
+                  } ,
+                  'excel','copy'
+              ],
+              responsive: true,
+          })
+      });
+
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap4.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+  <!-- <script type="text/javascript" src="/assets/js/script.js"></script> -->
+  <script src="/assets/js/myCustomJs.js"></script>
+  <script src="/assets/js/apiJS.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.3/dist/sweetalert2.all.min.js"></script>
+  
+
+
+  <script>
+    hideError();     // my custom js
+    hideSuccess();    // my custom js 
+    updateCat('Super Admin','selAdmin');      // my custom js 
+    input_update("account_type","Super Admin");     // my custom js 
+    hideFeature();        // my custom js 
+    copyrightYear();      // my custom js 
+
+
+    /* Function for displaying the pop up on clicking the submit buton */
+    function SubmitTheForm (a){
+      //a = form id
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You Want to Add Admin!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Yes, Add it!",
+            cancelButtonText: "No, cancel!",
+            reverseButtons: true
+        }).then(function(result) {
+            if (result.value) {
+
+              let form = document.getElementById(a);
+              var inputs = form.querySelectorAll("input");
+              
+              // Check for empty fields
+                for (var i = 0; i < inputs.length; i++) {
+                  if (inputs[i].value === "" && inputs[i].type != "file") {
+                    alert("Please fill in all the fields.");
+                    return;
+                  }
+                }
+
+                Swal.fire(
+                    "Success!",
+                    "Admin Has Been Added Successfully.",
+                    "success"
+
+                    )
+
+                form.submit();
+                // result.dismiss can be "cancel", "overlay",
+                // "close", and "timer"
+
+            } else if (result.dismiss === "cancel") {
+                Swal.fire(
+                    "Cancelled",
+                    "Admin Not Added :)",
+                    "error"
+                )
+            }
+        });
+      }
+  </script>
+  </body>
+</html>

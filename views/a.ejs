@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Google Sign In</title>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script>
+    function handleCredentialResponse(response) {
+      var responsePayload = response.credential;
+
+      // Get the user's ID and email address.
+      var userId = responsePayload.id;
+      var email = responsePayload.email;
+
+      // Display the user's ID and email address on the page.
+      document.getElementById('userId').innerHTML = userId;
+      document.getElementById('email').innerHTML = email;
+    }
+  </script>
+</head>
+<body>
+  <h1>Google Sign In</h1>
+  <div id="g_id_onload"
+       data-client_id="213811010076-c1e8lmj2m9rlfhdiqcnspr4ime6h27a8.apps.googleusercontent.com"
+       data-callback="handleCredentialResponse"
+       data-auto_prompt="false"></div>
+  <div id="userId"></div>
+  <div id="email"></div>
+</body>
+</html>

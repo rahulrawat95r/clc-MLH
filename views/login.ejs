@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Login</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" />
+
+
+    <!-- Custom JS -->
+
+    <style>
+
+      .hidden_one{
+        display: none;
+      }
+
+      .brand-logo{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .content-wrapper{
+        background-image: url('https://mitsgwalior.in/images/banner.jpg');
+        background-position: center;
+      }
+
+      .auth .auth-form-light{
+        background: #d7f0ff;
+      }
+       
+      .form-control {
+        border-color: #014387;
+      }
+
+    </style>
+
+  </head>
+  <body>
+    <div class="container-scroller">
+      <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="content-wrapper d-flex align-items-center auth">
+          <div class="row flex-grow">
+            <div class="col-lg-4 mx-auto">
+              <div class="auth-form-light text-left p-5">
+                <div class="brand-logo">
+                  <img src="https://web.mitsgwalior.in/images/mits-logo.png">
+                </div>
+                <h4>Welcome to MITS Councelling Portal </h4>
+                <h6 class="font-weight-light">Sign in to continue.</h6>
+
+                <form class="pt-3" method="post" action="/admin/loginForm">
+
+                  <div class="form-group">
+                    <input type="text" required class="form-control form-control-lg" id="exampleInputEmail1" name="username" placeholder="Username">
+                  </div>
+
+                  <div class="form-group">
+                    <input type="password" class="form-control form-control-lg" required name="password" id="exampleInputPassword1" placeholder="Password">
+                  </div>
+                  <div class="mt-3">
+                    <button type="submit" class="btn btn-gradient-primary me-2" id = "submitBtn">Submit</button>
+                  </div>
+                  <div class="my-2 d-flex justify-content-between align-items-center">
+                    
+                    <a href="https://dte.mponline.gov.in/" class="auth-link text-black">MP DTE SITE</a>
+                  </div>
+                  
+
+
+                  <!-- Error Message  -->
+                  <div id="alertwale">
+                    <div class="alert alert-danger" id = "alertMsg" role="alert"> </div>
+
+                  </div>
+
+                  <div class="alert alert-success" id = "successAlert" role="alert"> </div>
+
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+
+
+    <!-- Confedential One  -->
+
+    <div class="hidden_one">
+      <input type="text" id="error_box_server" value = "<%=errorBox%>">
+    </div>
+
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="/assets/js/off-canvas.js"></script>
+    <script src="/assets/js/hoverable-collapse.js"></script>
+    <script src="/assets/js/misc.js"></script>
+
+    <!-- My JS --> 
+
+    <script src="/assets/js/myCustomJs.js"></script>
+    <script src="/assets/js/apiJS.js"></script>
+
+    <!-- For the Error Box-->
+
+    <script>
+      hideError();
+      hideSuccess();
+      errorBoxLogin ();
+    </script>
+    <!-- endinject -->
+  </body>
+</html>

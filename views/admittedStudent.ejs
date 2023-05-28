@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Admitted Students</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" />
+
+
+
+    <!-- For Table -->
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+  
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap4.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.print.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.2/css/buttons.dataTables.min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="/assets/css/style.css"> -->
+
+    <style>
+        .scroll_class{
+            overflow-y: hidden;
+            overflow-x: visible;
+            width: 100%;
+        }
+
+        .row > *{
+            background-color: rgb(233, 246, 255);
+            border-radius: 15px;
+            border: 3px solid black;
+            padding: 15px;
+        }
+
+        tr{
+            background-color: antiquewhite;
+        }
+
+        .customName{
+          padding-left: 3.5vw;
+          padding-right: 3.5vw;
+          color: #9425d2;
+          text-align: center;
+        }
+        
+        #logoImg{
+          height: 80px;
+          width: 100px;
+        }
+        
+        #logoImgMini{
+          height: 70px;
+          width: 100px;
+        }
+
+        .hidingOptions{
+          display: none;
+        }
+
+        #tableBody > * {
+          background-color: rgb(221 255 244);
+        }
+    </style>
+
+</head>
+<body>
+<div class="container-scroller">
+  <!-- partial:/partials/_navbar.html -->
+  
+  <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+    <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+      <a class="navbar-brand brand-logo" href="/admin/dashboard"><img id="logoImg" src="https://web.mitsgwalior.in/images/mits-logo.png" alt="logo" /></a>
+      <a class="navbar-brand brand-logo-mini" href="/admin/dashboard"><img id="logoImgMini" src="https://web.mitsgwalior.in/images/mits-logo.png" alt="logo" /></a>
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-stretch">
+      <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+        <span class="mdi mdi-menu"></span>
+      </button>
+
+      <div class="search-field d-none d-md-block">
+        <form class="d-flex align-items-center h-100">
+          <div class="input-group">
+            <div class="input-group-prepend bg-transparent customName">
+              <h5 class="display-5">Madhav Institute of Technology &amp; Science, Gwalior (M.P.), INDIA <br> 
+                माधव प्रौद्योगिकी एवं विज्ञान संस्थान, ग्वालियर (म.प्र.), भारत </h5>
+            </div>
+            
+          </div>
+        </form>
+      </div>
+          
+          <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item nav-profile dropdown">
+              <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="nav-profile-img">
+                  <img src="/assets/images/admin/<%=adminImg%>" alt="image">
+                  <span class="availability-status online"></span>
+                </div>
+                <div class="nav-profile-text">
+                  <p class="mb-1 text-black"><%=adminName%></p>
+                </div>
+              </a>
+              <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
+                
+                <a class="dropdown-item" href="/admin/logout">
+                  <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
+              </div>
+            </li>
+            <li class="nav-item d-none d-lg-block full-screen-link">
+              <a class="nav-link">
+                <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
+              </a>
+            </li>
+
+            <li class="nav-item nav-logout d-none d-lg-block">
+              <a class="nav-link" href="/admin/logout">
+                <i class="mdi mdi-power"></i>
+              </a>
+            </li>
+            
+          </ul>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+            <span class="mdi mdi-menu"></span>
+          </button>
+        </div>
+      </nav>
+
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:/partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+          <ul class="nav">
+            <li class="nav-item nav-profile">
+              <a href="#" class="nav-link">
+                <div class="nav-profile-image">
+                  <img src="/assets/images/admin/<%=adminImg%>" alt="profile">
+                  <span class="login-status online"></span>
+                  <!--change to offline or busy as needed-->
+                </div>
+                <div class="nav-profile-text d-flex flex-column">
+                  <span class="font-weight-bold mb-2"><%=adminName%></span>
+                  <span class="text-secondary text-small" id ="adminType"><%=adminType%></span>
+                </div>
+                <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+              </a>
+            </li>
+            
+            <li class="nav-item hidingOptions" id="dashboardHide">
+              <a class="nav-link" href="/admin/dashboard">
+                <span class="menu-title">Dashboard</span>
+                <i class="mdi mdi-home menu-icon"></i>
+              </a>
+            </li>
+
+            <li class="nav-item hidingOptions" id="admittedHide">
+              <a class="nav-link" href="/admin/admittedStudentPage">
+                <span class="menu-title">Admitted Students</span>
+                <i class="mdi mdi-account-check menu-icon"></i>
+              </a>
+            </li>
+
+
+            <li class="nav-item hidingOptions" id="feeSubmissionHide">
+              <a class="nav-link" href="/admin/feeSubmissionPage">
+                <span class="menu-title">Fee Status</span>
+                <i class="mdi mdi-bank menu-icon"></i>
+              </a>
+            </li>
+
+            <li class="nav-item hidingOptions" id="seatStatusHide">
+              <a class="nav-link" href="/admin/categorySeats">
+                <span class="menu-title">Seats Status</span>
+                <i class="mdi mdi-ticket-account menu-icon"></i>
+              </a>
+            </li>
+
+            <li class="nav-item hidingOptions" id="admissionHide">
+              <a class="nav-link" href="/admin/admitStudentPage">
+                <span class="menu-title">Admit Student</span>
+                <i class="mdi mdi-star-circle menu-icon"></i>
+              </a>
+            </li>
+
+            <li class="nav-item hidingOptions" id="seatConversionHide">
+              <a class="nav-link" href="/admin/seatConversion">
+                <span class="menu-title">Seat Conversion</span>
+                <i class="mdi mdi-autorenew menu-icon"></i>
+              </a>
+            </li>
+
+            <li class="nav-item hidingOptions" id="addAdminHide">
+              <a class="nav-link" href="/admin/addAdminPage">
+                <span class="menu-title">Add Admin</span>
+                <i class="mdi mdi-worker menu-icon"></i>
+              </a>
+            </li>
+
+
+            <li class="nav-item hidingOptions" id="uploadHide">
+              <a class="nav-link" href="/admin/filesSection">
+                <span class="menu-title">Upload Files</span>
+                <i class="mdi mdi-cloud-upload menu-icon"></i>
+              </a>
+            </li>
+
+            
+          </ul>
+        </nav>
+
+
+
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+
+            <div class="row">
+              
+              <div class="form-group">
+                    <h4 class="card-title">Select Year</h4>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <select class="btn btn-sm btn-outline-primary dropdown-toggle" id="yearOption" type="button" onchange="document.getElementById('SubBtn').disabled = false" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div class="dropdown-menu col-md-6" id = "yearOptions">
+                                    <option selected disabled class="dropdown-item" value="Select Year">Select Year</option>
+
+                                    
+                                </div>
+
+                                
+                            </select>
+
+                            &nbsp; &nbsp;
+                            <button type="button" id="SubBtn"  onclick="dataAdmitStudentTable() " class="btn btn-outline-info btn-icon-text"> Search <i class="mdi mdi-chart-bubble btn-icon-append"></i>
+
+                </div>
+
+                </div>
+              </div>  
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-12 grid-margin stretch-card">
+                    <div class="card">
+                      <div class="card-body scroll_class">
+                        <h4 class="card-title">Admitted Student </h4>
+                        
+                        <table class="table table-bordered" id = "myTable">
+                          <thead>
+                            <tr>
+                              <th> S.No </th>
+                              <th> Delete </th>
+                              <th> Roll No </th>
+                              <th> Candidate Type </th>
+                              <th> Name </th>
+                              <th> Father's Name </th>
+                              <th> Phone Number </th>
+                              <th> Branch </th>
+                              <th> Category </th>
+                              <th> Admission Category </th>
+                              <th> Admission Time  </th>
+                              <th> Fee Status </th>
+                              <th> Fee Receipt Number </th>
+                              <th> Gender </th>
+                              <th> DOB </th>
+                              <th> Domicile </th>
+                              <th> Remarks </th>
+                            </tr>
+                          </thead>
+                          <tbody id="tableBody">
+                            <!-- <tr >
+                              <td>1</td>
+                              <td>2110055005</td>
+                              <td>Candidate Type</td>
+                              <td>Rahul Rawat</td>
+                              <td>Ravi Rawat</td>
+                              <td>123</td>
+                              <td>123</td>
+                              <td>123</td>
+                              <td>123</td>
+                              <td>123</td>
+                              <td>123</td>
+                              <td>123</td>
+                              <td scope="row"><a class="btn btn-danger" href="">Delete</a></td>
+                            </tr> -->
+                            
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+          </div>
+
+          
+
+
+          <!-- content-wrapper ends -->
+          <!-- partial:/partials/_footer.html -->
+          <footer class="footer">
+            <div class="container-fluid d-flex justify-content-between">
+              <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright © MITS Gwalior <span id = "copyYear"></span></span>
+              <!-- <span class="float-none float-sm-end mt-1 mt-sm-0 text-end"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin template</a> from Bootstrapdash.com</span> -->
+            </div>
+          </footer>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="/assets/js/off-canvas.js"></script>
+    <script src="/assets/js/hoverable-collapse.js"></script>
+    <script src="/assets/js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <!-- End custom js for this page -->
+
+
+
+    <!-- For tables -->
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                dom: 'Bfrtip',
+                responsive: true,
+                buttons: [
+                    {
+                        extend: 'pdfHtml5',
+                        orientation: 'landscape',
+                        pageSize: 'LEGAL',
+                        
+                    },
+                    'excel','copy'
+                ],
+                responsive: true,
+            })
+        });
+
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+    <!-- <script type="text/javascript" src="/assets/js/script.js"></script> -->
+
+
+    <script src="/assets/js/myCustomJs.js"></script>
+    <script src="/assets/js/apiJS.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      hideFeature();     // my custom js
+      // dataAdmitStudentTable();     // api js
+      copyrightYear();      // my custom js 
+
+      getYearList ('admit'); // API JS 
+    </script>
+  </body>
+</html>

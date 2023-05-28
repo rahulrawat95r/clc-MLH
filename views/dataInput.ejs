@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Upload Files</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" />
+
+    <style>
+      .customName{
+        padding-left: 3.5vw;
+        padding-right: 3.5vw;
+        color: #9425d2;
+        text-align: center;
+      }
+
+      #logoImg{
+        height: 80px;
+        width: 100px;
+      }
+
+      #logoImgMini{
+        height: 70px;
+        width: 100px;
+      }
+
+      .hidingOptions{
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:/partials/_navbar.html -->
+      
+      <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+          <a class="navbar-brand brand-logo" href="/admin/dashboard"><img id="logoImg" src="https://web.mitsgwalior.in/images/mits-logo.png" alt="logo" /></a>
+          <a class="navbar-brand brand-logo-mini" href="/admin/dashboard"><img id="logoImgMini" src="https://web.mitsgwalior.in/images/mits-logo.png" alt="logo" /></a>
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-stretch">
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <span class="mdi mdi-menu"></span>
+          </button>
+
+          <div class="search-field d-none d-md-block">
+            <form class="d-flex align-items-center h-100">
+              <div class="input-group">
+                <div class="input-group-prepend bg-transparent customName">
+                  <h5 class="display-5">Madhav Institute of Technology &amp; Science, Gwalior (M.P.), INDIA <br> 
+                    माधव प्रौद्योगिकी एवं विज्ञान संस्थान, ग्वालियर (म.प्र.), भारत </h5>
+                </div>
+                
+              </div>
+            </form>
+          </div>
+          
+          <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item nav-profile dropdown">
+              <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="nav-profile-img">
+                  <img src="/assets/images/admin/<%=adminImg%>" alt="image">
+                  <span class="availability-status online"></span>
+                </div>
+                <div class="nav-profile-text">
+                  <p class="mb-1 text-black"><%=adminName%></p>
+                </div>
+              </a>
+              <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
+                
+                <a class="dropdown-item" href="/admin/logout">
+                  <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
+              </div>
+            </li>
+            <li class="nav-item d-none d-lg-block full-screen-link">
+              <a class="nav-link">
+                <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
+              </a>
+            </li>
+
+            <li class="nav-item nav-logout d-none d-lg-block">
+              <a class="nav-link" href="/admin/logout">
+                <i class="mdi mdi-power"></i>
+              </a>
+            </li>
+            
+          </ul>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+            <span class="mdi mdi-menu"></span>
+          </button>
+        </div>
+      </nav>
+
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:/partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+          <ul class="nav">
+            <li class="nav-item nav-profile">
+              <a href="#" class="nav-link">
+                <div class="nav-profile-image">
+                  <img src="/assets/images/admin/<%=adminImg%>" alt="profile">
+                  <span class="login-status online"></span>
+                  <!--change to offline or busy as needed-->
+                </div>
+                <div class="nav-profile-text d-flex flex-column">
+                  <span class="font-weight-bold mb-2"><%=adminName%></span>
+                  <span class="text-secondary text-small" id ="adminType"><%=adminType%></span>
+                </div>
+                <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+              </a>
+            </li>
+            
+            <li class="nav-item hidingOptions" id="dashboardHide">
+              <a class="nav-link" href="/admin/dashboard">
+                <span class="menu-title">Dashboard</span>
+                <i class="mdi mdi-home menu-icon"></i>
+              </a>
+            </li>
+
+            <li class="nav-item hidingOptions" id="admittedHide">
+              <a class="nav-link" href="/admin/admittedStudentPage">
+                <span class="menu-title">Admitted Students</span>
+                <i class="mdi mdi-account-check menu-icon"></i>
+              </a>
+            </li>
+
+
+            <li class="nav-item hidingOptions" id="feeSubmissionHide">
+              <a class="nav-link" href="/admin/feeSubmissionPage">
+                <span class="menu-title">Fee Status</span>
+                <i class="mdi mdi-bank menu-icon"></i>
+              </a>
+            </li>
+
+            <li class="nav-item hidingOptions" id="seatStatusHide">
+              <a class="nav-link" href="/admin/categorySeats">
+                <span class="menu-title">Seats Status</span>
+                <i class="mdi mdi-ticket-account menu-icon"></i>
+              </a>
+            </li>
+
+            <li class="nav-item hidingOptions" id="admissionHide">
+              <a class="nav-link" href="/admin/admitStudentPage">
+                <span class="menu-title">Admit Student</span>
+                <i class="mdi mdi-star-circle menu-icon"></i>
+              </a>
+            </li>
+
+            <li class="nav-item hidingOptions" id="seatConversionHide">
+              <a class="nav-link" href="/admin/seatConversion">
+                <span class="menu-title">Seat Conversion</span>
+                <i class="mdi mdi-autorenew menu-icon"></i>
+              </a>
+            </li>
+
+            <li class="nav-item hidingOptions" id="addAdminHide">
+              <a class="nav-link" href="/admin/addAdminPage">
+                <span class="menu-title">Add Admin</span>
+                <i class="mdi mdi-worker menu-icon"></i>
+              </a>
+            </li>
+
+
+            <li class="nav-item hidingOptions" id="uploadHide">
+              <a class="nav-link" href="/admin/filesSection">
+                <span class="menu-title">Upload Files</span>
+                <i class="mdi mdi-cloud-upload menu-icon"></i>
+              </a>
+            </li>
+
+            
+          </ul>
+        </nav>
+        
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+
+            <div id="alertwale">
+              <div class="alert alert-danger" id = "alertMsg" role="alert"> </div>
+
+            </div>
+
+            <div class="alert alert-success" id = "successAlert" role="alert"> </div>
+
+            <div class="row">
+
+                <div class="col-12 grid-margin stretch-card">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title">Upload Merit File Here</h4>
+                        
+                        <form id="MeritForm" class="forms-sample" method="post" action="/admin/uploadMerit" enctype="multipart/form-data">
+
+                          
+                          <div class="form-group">
+                            <label ><span class="display-4"> UPLOAD MERIT LIST HERE   -   Sample : <a href="https://docs.google.com/spreadsheets/d/1_tqJjQMAYaIsKWkESX7faLtJVTSjQNeiytEUtJJ_h_o/edit?usp=sharing" target="_blank">Merit List </a>  </span></label>
+                            <!-- <input type="file" name="merit" required class="file-upload-default"> -->
+                            <div class="input-group col-xs-6">
+                              <input type="file" accept=".xlsx,.xls" required name="MERIT_LIST" class="form-control file-upload-info" placeholder="Upload Merit List">
+                              <span class="input-group-append">
+                                <button type="button" onclick="SubmitFiles('MeritForm')" class="btn btn-gradient-success btn-icon-text">
+                                    <i class="mdi mdi-upload btn-icon-prepend"></i> Upload </button>
+
+                                <!-- <button type="button" class="btn btn-gradient-danger btn-icon-text">
+                                    <i class="mdi mdi-delete btn-icon-prepend"></i> Delete </button> -->
+                              </span>
+                            </div>
+                          </div>
+                          
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+
+            </div>
+
+
+            <div class="row">
+
+                <div class="col-12 grid-margin stretch-card">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title">Upload Vacancy File Here</h4>
+                        
+                        <form class="forms-sample" id="VacantForm" action="/admin/uploadVacancy" method="post" enctype="multipart/form-data">
+
+                          
+                          <div class="form-group">
+                            <label ><span class="display-4"> UPLOAD VACANCY LIST HERE   -   Sample : <a href="https://docs.google.com/spreadsheets/d/1GDOTLQAA87zADLJO-lo1erP25XUTLQBNbC7Y0iTCSBA/edit?usp=sharing" target="_blank">Vacancy List </a>  </span></label>
+                            
+                            <div class="input-group col-xs-6">
+                              <input type="file" accept=".xlsx,.xls" required name="VACANCY_LIST" class="form-control file-upload-info" placeholder="Upload Merit List">
+                              <span class="input-group-append">
+                                <button type="button" onclick="SubmitFiles('VacantForm')" class="btn btn-gradient-success btn-icon-text">
+                                    <i class="mdi mdi-upload btn-icon-prepend"></i> Upload </button>
+
+                                <!-- <button type="button" class="btn btn-gradient-danger btn-icon-text">
+                                    <i class="mdi mdi-delete btn-icon-prepend"></i> Delete </button> -->
+                              </span>
+                            </div>
+                          </div>
+                          
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+
+            </div>
+          </div>
+
+
+          <!-- Error Checker Input Field -->
+
+          <input type="text" name="error_checker" value="<%=error%>" id="error_checker" hidden>
+        
+          <!-- content-wrapper ends -->
+          <!-- partial:/partials/_footer.html -->
+          <footer class="footer">
+            <div class="container-fluid d-flex justify-content-between">
+              <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright © MITS Gwalior <span id = "copyYear"></span></span>
+              <!-- <span class="float-none float-sm-end mt-1 mt-sm-0 text-end"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin template</a> from Bootstrapdash.com</span> -->
+            </div>
+          </footer>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="/assets/js/off-canvas.js"></script>
+    <script src="/assets/js/hoverable-collapse.js"></script>
+    <script src="/assets/js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <!-- End custom js for this page -->
+
+    <!-- Including the custom script for the errors -->
+
+    <script src="/assets/js/myCustomJs.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.3/dist/sweetalert2.all.min.js"></script>
+
+    <script>
+      hideError();    // my custom js 
+      hideSuccess();     // my custom js 
+      upload_page_check();   // mycustom js   
+      hideFeature();     // my custom js 
+      copyrightYear();      // my custom js 
+
+      function SubmitFiles (a){
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Yes, Upload it!",
+            cancelButtonText: "No, cancel!",
+            reverseButtons: true
+        }).then(function(result) {
+            if (result.value) {
+              let form = document.getElementById(a);
+              
+              // Get all the input elements in the form
+              var inputs = form.querySelectorAll("input");
+              
+              // Check for empty fields
+                for (var i = 0; i < inputs.length; i++) {
+                  if (inputs[i].value === "") {
+                    alert("Please fill in all the fields.");
+                    return;
+                  }
+                }
+                
+                form.submit();
+                // result.dismiss can be "cancel", "overlay",
+                // "close", and "timer"
+            } else if (result.dismiss === "cancel") {
+                Swal.fire(
+                    "Cancelled",
+                    "Your imaginary file is safe :)",
+                    "error"
+                )
+            }
+        });
+      }
+    </script>
+  </body>
+</html>

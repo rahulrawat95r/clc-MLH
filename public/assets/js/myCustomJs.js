@@ -224,24 +224,37 @@ function alertAdmittingStudent() {
   let category = document.getElementById("selCat").innerText;
   let subcategory = document.getElementById("ssubCat").innerText;
 
+  let roll = document.getElementById('rno').value;
+  let name = document.getElementById('sname').value;
+  let fname = document.getElementById('sfather').value;
+
   if (
     branch != "Branch" &&
     category != "Category" &&
     subcategory != "Sub Category"
   ) {
     Swal.fire({
-      title: "Are you sure?",
-      text: "You want to Admit the Student",
-      icon: "warning",
+      title: 'Confirm Student Details !',
+      html : `
+      <label class="col-sm-3 col-form-label">Roll Number</label> <input class="form-control" type = "text" disabled value = "${roll}"/>
+      <label class="col-sm-3 col-form-label">Name</label> <input class="form-control" type = "text" disabled value = "${name}"/>
+      <label class="col-sm-3 col-form-label">Father Name</label> <input class="form-control" type = "text" disabled value = "${fname}"/>
+      <label class="col-sm-3 col-form-label">Branch</label> <input class="form-control" type = "text" disabled value = "${branch}"/>
+      <label class="col-sm-3 col-form-label">Category</label> <input class="form-control" type = "text" disabled value = "${category}"/>
+      <label class="col-sm-3 col-form-label">Sub Category</label> <input class="form-control" type = "text" disabled value = "${subcategory}"/>
+      `,
+      buttons: true,
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, Admit Student!",
-    }).then((result) => {
+      confirmButtonText: "Admit Student",
+      cancelButtonText: "Cancel",
+    }).then ((result)=>{
+
       if (result.isConfirmed) {
+
         document.getElementById("mainSubBtn").click();
       }
-    });
+
+    })
   } else {
     Swal.fire("Empty Fields", "Please Select All Information", "error");
   }

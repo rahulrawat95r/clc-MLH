@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 
 
 router.get ('/aboutus',(req,res)=>{
-  res.render ('aboutUs');
+  res.render ('aboutUS');
 })
 
 // router.get ('/',(Req,res)=>{

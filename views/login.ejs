@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="/assets/images/favicon.ico" />
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 
 
     <!-- Custom JS -->
@@ -75,6 +76,25 @@
                     <button type="submit" class="btn btn-gradient-primary me-2" id = "submitBtn">Submit</button>
                   </div>
                   <div class="my-2 d-flex justify-content-between align-items-center">
+
+                    <div id="g_id_onload"
+                      data-client_id="922144183541-6e33bt7089ldbkm6bjn49aagdlfnl88c.apps.googleusercontent.com"
+                      data-context="signin"
+                      data-ux_mode="popup"
+                      data-login_uri="http://localhost:3001/admin/login"
+                      data-itp_support="true">
+                  </div>
+
+                  <div class="g_id_signin"
+                      data-type="standard"
+                      data-shape="rectangular"
+                      data-theme="outline"
+                      data-text="signin_with"
+                      data-size="large"
+                      data-logo_alignment="left">
+                  </div>
+                  </div>
+
                     
                     <a href="https://dte.mponline.gov.in/" class="auth-link text-black">MP DTE SITE</a>
                   </div>
@@ -130,6 +150,7 @@
       hideSuccess();
       errorBoxLogin ();
     </script>
+
     <!-- endinject -->
   </body>
 </html>

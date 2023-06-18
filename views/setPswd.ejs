@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Login</title>
+    <title>Set Password</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="/assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="/assets/vendors/css/vendor.bundle.base.css">
@@ -59,28 +59,32 @@
                 <div class="brand-logo">
                   <img src="https://web.mitsgwalior.in/images/mits-logo.png">
                 </div>
-                <h4>Welcome to MITS Councelling Portal </h4>
-                <h6 class="font-weight-light">Sign in to continue.</h6>
+                <h4>Welcome to <span id="userName"><%=name%></span> </h4>
+                
+                <h6 class="font-weight-light">Set Your Password !</h6>
 
-                <form class="pt-3" method="post" action="/admin/loginForm">
+                <form class="pt-3" method="post" action="/admin/setPassword">
 
                   <div class="form-group">
-                    <input type="text" required class="form-control form-control-lg" id="exampleInputEmail1" name="username" placeholder="Username">
+                    <input type="password" required class="form-control form-control-lg" id="p1" oninput="checkBothPswds()" name="password" placeholder="Password">
                   </div>
 
                   <div class="form-group">
-                    <input type="password" class="form-control form-control-lg" required name="password" id="exampleInputPassword1" placeholder="Password">
+                    <input type="password" class="form-control form-control-lg" required oninput="checkBothPswds()" name="passwordRe" id="p2" placeholder="Re-Enter Your Password">
                   </div>
+                  <!-- For storing the user information -->
+
+                  <input type="text" name="name" id="" hidden value = '<%=name%>' required>
+                  <input type="text" name="email" id="" hidden value = '<%=email%>' required>
+                  <input type="text" name="photo" id="" hidden value = "<%=photo%>" required>
+
                   <div class="mt-3">
-                    <button type="submit" class="btn btn-gradient-primary me-2" id = "submitBtn">Submit</button>
-                    <a href='/admin/auth'><button class="btn btn-gradient-danger" type="button">Login With Google</button></a>
+                    <button type="submit" class="btn btn-gradient-primary me-2" id = "submitBtn" disabled>Create Password</button>
+                    
                   </div>
-                  
-                  
-                  <a href="https://dte.mponline.gov.in/" class="auth-link text-black">MP DTE SITE</a>
-                  </div>
-                  
 
+                  </div>
+                  
 
                   <!-- Error Message  -->
                   <div id="alertwale">

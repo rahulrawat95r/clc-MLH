@@ -176,20 +176,29 @@ function hideFeature() {
   let type = document.getElementById("adminType").innerText;
 
   // Default Show
-  document.getElementById("dashboardHide").style.display = "block";
-  document.getElementById("admittedHide").style.display = "block";
-  document.getElementById("seatStatusHide").style.display = "block";
+  
+  if (type == "Normal"){
+    document.getElementById("dashboardHide").style.display = "block";
+    
+  }
+  
+  else{
+    document.getElementById("dashboardHide").style.display = "block";
+    document.getElementById("admittedHide").style.display = "block";
+    document.getElementById("seatStatusHide").style.display = "block";
+  
+    if (type == "Admission") {
+      document.getElementById("admissionHide").style.display = "block";
+    } else if (type == "Accountant") {
+      document.getElementById("feeSubmissionHide").style.display = "block";
+    } else {
+      document.getElementById("uploadHide").style.display = "block";
+      document.getElementById("admissionHide").style.display = "block";
+      document.getElementById("seatConversionHide").style.display = "block";
+      document.getElementById("addAdminHide").style.display = "block";
+      document.getElementById("feeSubmissionHide").style.display = "block";
+    }
 
-  if (type == "Admission") {
-    document.getElementById("admissionHide").style.display = "block";
-  } else if (type == "Accountant") {
-    document.getElementById("feeSubmissionHide").style.display = "block";
-  } else {
-    document.getElementById("uploadHide").style.display = "block";
-    document.getElementById("admissionHide").style.display = "block";
-    document.getElementById("seatConversionHide").style.display = "block";
-    document.getElementById("addAdminHide").style.display = "block";
-    document.getElementById("feeSubmissionHide").style.display = "block";
   }
 }
 
@@ -284,24 +293,28 @@ function defaultCategorySubCat() {
   document.getElementById("selsubCategory").value = "";
 }
 
-/* Delete Alert  */
 
-function DeleteAlert(a) {
-  Swal.fire({
-    title: "Are you sure?",
-    text: "You want to Perform this Action !",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Yes, Do It!",
-  }).then((result) => {
-    if (result.isConfirmed) {
-      // console.log ('cnaa')
 
-      window.location.href = a;
-    } else {
-      Swal.fire("Cancelled!", "Your Data is SAFE!", "warning");
+
+/* Checking the re enter passwords */
+
+function checkBothPswds(){
+    let p1 = document.getElementById('p1').value;
+    let p2 = document.getElementById('p2').value;
+
+    if (p1 == p2){
+      hideError();
+      showSuccess ('Passwords Matched');
+
+      document.getElementById('submitBtn').disabled = false;
     }
-  });
+    
+    else{
+      hideSuccess();
+      showError (`Passwords Don't Match`);
+
+      document.getElementById('submitBtn').disabled = true;
+
+    }
+    
 }

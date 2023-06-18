@@ -64,6 +64,8 @@ function categorySeats() {
   let cat = document.getElementById("catSelect").value;
   document.getElementById("catName").innerText = cat;
   let year = document.getElementById("yearOption").value;
+
+  let dating = new Date ();
   // console.log ('chala' + cat)
 
   let x = "/admin/categorySeatsData?category=" + cat + "&year=" + year;
@@ -101,7 +103,7 @@ function categorySeats() {
               buttons: [
                 {
                   extend: "pdfHtml5",
-                  title: `${year} Seat Status`,
+                  title: `${year} Seat Status ${dating}`,
                   orientation: "landscape",
                   pageSize: "A4", // You can also use "A1","A2" or "A3", most of the time "A3" works the best.
                   text: "PDF",
@@ -165,7 +167,7 @@ function categorySeats() {
               buttons: [
                 {
                   extend: "pdfHtml5",
-                  title: `${year} Seat Status`,
+                  title: `${year} Seat Status ${dating}`,
                   orientation: "landscape",
                   pageSize: "A4", // You can also use "A1","A2" or "A3", most of the time "A3" works the best.
                   text: "PDF",
@@ -1146,4 +1148,120 @@ function fetchtableConversion(a) {
         }
       });
   }
+}
+
+
+
+
+/* Activating / Deactivation Adminss */
+
+
+function actiDeactiAdmin (email , state){
+
+
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You want to Perform this Action !",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, Do It!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // console.log ('cnaa')
+      fetch ('/admin/adminActivationFeature' , {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({username : email , action : state.toLowerCase()})
+      })
+    
+      .then ((response => response.json ()))
+      .then ((data) => {
+        window.location.href = "/admin/addAdminPage";
+      })
+
+      
+    } else {
+      Swal.fire("Cancelled!", "Your Data is SAFE!", "warning");
+    }
+  });
+    
+}
+
+
+
+
+/* Function to change the position of the admins */
+
+function changePositionAdmin (email){
+  let pos = document.getElementById (`${email}Position`).innerText;
+
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You want to Change the Position !",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, Do It!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // console.log ('cnaa')
+      fetch ('/admin/changePositionAdmin', {
+        method : "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({username : email , type: pos })
+      })
+    
+      .then (response => response.json ())
+      .then ((obj)=>{
+        window.location.href = "/admin/addAdminPage";
+      })
+
+      
+    } else {
+      Swal.fire("Cancelled!", "Your Data is SAFE!", "warning");
+    }
+  });
+
+
+  
+
+}
+
+
+
+
+/* Function for giving the alert before deleting */
+
+
+function DeleteAlert (apiUrl){
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You want to Delete !",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, Do It!",
+  }).then((result) => {
+    if (result.isConfirmed) {      
+      // console.log ('cnaa')
+      fetch (apiUrl)
+    
+      .then (response => response.json ())
+      .then ((obj)=>{
+        location.reload ();
+      })
+
+      
+    } else {
+      Swal.fire("Cancelled!", "Your Data is SAFE!", "warning");
+    }
+  });
 }

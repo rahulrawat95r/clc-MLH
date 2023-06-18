@@ -10,6 +10,58 @@ var imgname = "";
 var ExcelToCSV = require("../public/assets/js/ExcelToCSV.js");
 var logger = require("../controller/logger");
 var ip = require("ip");
+const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth2').Strategy;
+const axios = require('axios');
+const fs = require('fs');
+const path = require ('path');
+
+
+
+
+
+/* Function for getting the current date and time in formatted manner */
+
+function getFormattedDateTime() {
+  const currentDate = new Date();
+  
+  const year = currentDate.getFullYear();
+  const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+  const day = String(currentDate.getDate()).padStart(2, '0');
+  
+  const hours = String(currentDate.getHours()).padStart(2, '0');
+  const minutes = String(currentDate.getMinutes()).padStart(2, '0');
+  const seconds = String(currentDate.getSeconds()).padStart(2, '0');
+  
+  const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+  
+  return formattedDateTime;
+}
+
+/* For storing the images from the google url to server */
+
+function saveImageUrl (imageUrl, imageName){
+  const imagePath = path.join('./public/assets/images/admin', imageName);
+
+  axios({
+    url: imageUrl,
+    responseType: 'stream'
+  })
+    .then(response => {
+      response.data.pipe(fs.createWriteStream(imagePath));
+      return new Promise((resolve, reject) => {
+        response.data.on('end', resolve);
+        response.data.on('error', reject);
+      });
+    })
+    .then(() => {
+      // console.log('Image downloaded and saved successfully.');
+    })
+    .catch(error => {
+      console.error('Error downloading and saving the image:', error);
+    });
+}
+
 
 /* Multer Storage */
 
@@ -48,7 +100,10 @@ const uploadExcel = multer({ storage: storage2 });
 router.get("/addAdminPage", (req, res) => {
   if (req.session.username) {
     if (req.session.type == "Super Admin") {
-      pool.query("Select * from `adminlogin`", (err, obj) => {
+      let year = new Date ();
+      year = year.getFullYear ();
+
+      pool.query("Select * from `adminlogin` where year = ?",  [year] , (err, obj) => {
         if (err) {
           console.log(err);
 
@@ -98,10 +153,13 @@ router.get("/addAdminPage", (req, res) => {
 router.get("/checkUsernameApi", (req, res) => {
   if (req.session.username) {
     if (req.session.type == "Super Admin") {
+
+      let year = new Date ();
+      year = year.getFullYear();
       // console.log (req.query.username)
       pool.query(
-        "SELECT `username` from `adminlogin` where username = ?",
-        [req.query.username],
+        "SELECT `username` from `adminlogin` where username = ? and year = ?",
+        [req.query.username , year],
         (err, obj) => {
           if (err) {
             console.log(err);
@@ -155,9 +213,12 @@ router.post("/createAdminForm", uploadImg.single("img"), (req, res) => {
         imgname = "mitsLogo.png";
       }
 
+      let year = new Date ();
+      year = year.getFullYear ();
+
       pool.query(
-        "INSERT INTO `adminlogin` (`name`, `username`, `password`, `profile`, `type`,`active`) values (?,?,?,?,?,'Y')",
-        [text.name, text.username, pass, imgname, text.acctype],
+        "INSERT INTO `adminlogin` (`name`, `username`, `password`, `profile`, `type`,`active` , year) values (?,?,?,?,?,'Y',?)",
+        [text.name, text.username, pass, imgname, text.acctype , year],
         (err, obj) => {
           if (err) {
             console.log(err);
@@ -213,9 +274,12 @@ router.post("/firstSuperAdmin", uploadImg.single("img"), (req, res) => {
         imgname = "mitsLogo.png";
       }
 
+      let year = new Date ();
+      year = year.getFullYear ();
+
       pool.query(
-        "INSERT INTO `adminlogin` (`name`, `username`, `password`, `profile`, `type`,`active`) values (?,?,?,?,?,'Y')",
-        [text.name, text.username, pass, imgname, text.acctype],
+        "INSERT INTO `adminlogin` (`name`, `username`, `password`, `profile`, `type`,`active`, year) values (?,?,?,?,?,'Y',?)",
+        [text.name, text.username, pass, imgname, text.acctype, year],
         (err, obj) => {
           if (err) {
             console.log(err);
@@ -237,13 +301,16 @@ router.post("/firstSuperAdmin", uploadImg.single("img"), (req, res) => {
 
 /* Admin Activation or Deactivation Feature  */
 
-router.get("/adminActivationFeature", (req, res) => {
+router.post("/adminActivationFeature", (req, res) => {
   if (req.session.username) {
     if (req.session.type == "Super Admin") {
-      if (req.query.action == "delete") {
+      if (req.body.action == "delete") {
+        let year = new Date();
+        year = year.getFullYear ();
+
         pool.query(
-          "update `adminlogin` set active = ? where username = ?",
-          ["N", req.session.username],
+          "update `adminlogin` set active = ? where username = ? and year = ?",
+          ["N", req.body.username , year],
           (err, obj) => {
             if (err) {
               console.log(err);
@@ -253,39 +320,52 @@ router.get("/adminActivationFeature", (req, res) => {
 
             let mes = `| Request -> /admin/adminActivationFeature | IP -> ${req.ip} | Admin ${req.session.username} Deleted | Admin -> ${req.session.username} |`;
             logger.customLogger.log("info", mes);
-            res.redirect("/admin/addAdminPage");
+            // res.redirect("/admin/addAdminPage");
+            res.send ([])
+
           }
         );
       } else {
+        let year = new Date ();
+        year = year.getFullYear ();
+
         pool.query(
-          "update `adminlogin` set active = ? where username = ?",
-          ["Y", req.session.username],
+          "update `adminlogin` set active = ? where username = ? and year = ?",
+          ["Y", req.body.username , year] ,
           (err, obj) => {
             if (err) {
               console.log(err);
 
               let mes = `| Request -> /admin/adminActivationFeature | IP -> ${req.ip} | Database Error | Admin -> ${req.session.username} |`;
               logger.customLogger.log("error", mes);
+              res.send ([])
+
             }
 
             let mes = `| Request -> /admin/adminActivationFeature | IP -> ${req.ip} | Activating ${req.session.username} | Admin -> ${req.session.username} |`;
             logger.customLogger.log("info", mes);
-            res.redirect("/admin/addAdminPage");
+            res.send ([])
+
+            // res.redirect("/admin/addAdminPage");
           }
         );
       }
     } else {
       let mes = `| Request -> /admin/adminActivationFeature | IP -> ${req.ip} | No Authorization | Admin -> ${req.session.username} |`;
       logger.customLogger.log("warn", mes);
-      res.render("error", {
-        message: "You are Not Authorized",
-        error: { status: 500 },
-      });
+      // res.render("error", {
+      //   message: "You are Not Authorized",
+      //   error: { status: 500 },
+      // });
+
+      res.send ([])
     }
   } else {
     let mes = `| Request -> /admin/adminActivationFeature | IP -> ${req.ip} | No Login |`;
     logger.customLogger.log("warn", mes);
-    res.render("login", { errorBox: "Please Login First !" });
+    res.send ([])
+
+    // res.render("login", { errorBox: "Please Login First !" });
   }
 });
 
@@ -293,7 +373,7 @@ router.get("/adminActivationFeature", (req, res) => {
 
 router.get("/admitStudentPage", (req, res) => {
   if (req.session.username) {
-    if (req.session.type != "Accountant") {
+    if (req.session.type != "Accountant" && req.session.type != "Normal") {
       let mes = `| Request -> /admin/admitStudentPage | IP -> ${req.ip} | Rendering Admit new Student Page | Admin -> ${req.session.username} |`;
       logger.customLogger.log("info", mes);
 
@@ -333,7 +413,7 @@ router.get("/admitStudentPage", (req, res) => {
 
 router.get("/searchStudent", (req, res) => {
   if (req.session.username) {
-    if (req.session.type != "Accountant") {
+    if (req.session.type != "Accountant" && req.session.type != "Normal") {
       let year = new Date();
       year = year.getFullYear();
 
@@ -411,7 +491,7 @@ router.get("/searchStudent", (req, res) => {
 
 router.get("/checkAvailability", (req, res) => {
   if (req.session.username) {
-    if (req.session.type != "Accountant") {
+    if (req.session.type != "Accountant" && req.session.type != "Normal") {
       let year = new Date();
       year = year.getFullYear();
 
@@ -491,10 +571,15 @@ router.get("/checkAvailability", (req, res) => {
 
 router.post("/admitStudentForm", (req, res) => {
   if (req.session.username) {
-    if (req.session.type != "Accountant") {
+    if (req.session.type != "Accountant" && req.session.type != "Normal") {
       const text = req.body;
 
       let time = new Date();
+
+      let fDate = getFormattedDateTime();
+
+      pool.query (`update activity set time = ? where act = "seats"`,[fDate],(a,b)=>{});
+
 
       pool.query(
         "INSERT INTO `admittedstudents`(`jeerollno`, `Candidate_Type`, `name`, `fathersname`, `Phonenumber`, `branch`, `category`, `subcategory`, `feestatus`, `feereceiptno`, `admissiontime`, `gender`, `dob`, `domicile`, `remarks`,`year`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
@@ -556,6 +641,9 @@ router.post("/admitStudentForm", (req, res) => {
                         let mes = `| Request -> /admin/admitStudentForm | IP -> ${req.ip} | Student ${text.srollNo} Admitted | Admin -> ${req.session.username} |`;
                         logger.customLogger.log("info", mes);
 
+                        const io = req.app.get('socketio');
+                        io.emit ('refresh_page','refresing');
+
                         res.redirect("/admin/admitStudentPage?error=2");
                       }
                     );
@@ -614,7 +702,12 @@ router.post("/admitStudentForm", (req, res) => {
                       let mes = `| Request -> /admin/admitStudentForm | IP -> ${req.ip} | Student ${text.srollNo} Admitted | Admin -> ${req.session.username} |`;
                       logger.customLogger.log("info", mes);
 
+                      const io = req.app.get('socketio');
+                      io.emit ('refresh_page','refresing');
+                      
                       res.redirect("/admin/admitStudentPage?error=2");
+
+
                     }
                   );
                 }
@@ -709,10 +802,14 @@ router.get("/admittedStudentData", (req, res) => {
 
 router.get("/deleteAdmitted", (req, res) => {
   if (req.session.username) {
-    if (req.session.type != "Accountant") {
+    if (req.session.type != "Accountant" && req.session.type != "Normal") {
       let branch = req.query.branch.replaceAll("_", " ");
       let year = new Date();
       year = req.query.year;
+
+      let fDate = getFormattedDateTime();
+
+      pool.query (`update activity set time = ? where act = "seats"`,[fDate],(a,b)=>{});
 
       pool.query(
         "delete from `admittedstudents` where `jeerollno` = ? and year = ?",
@@ -760,6 +857,9 @@ router.get("/deleteAdmitted", (req, res) => {
                           let mes = `| Request -> /admin/deleteAdmitted | IP -> ${req.ip} | Admitted Student ${req.query.roll} Deleted ! | Admin -> ${req.session.username} |`;
                           logger.customLogger.log("info", mes);
 
+                          const io = req.app.get('socketio');
+                          io.emit ('refresh_page','refresing');
+
                           res.redirect("/admin/admittedStudentPage");
                         }
                       }
@@ -792,6 +892,9 @@ router.get("/deleteAdmitted", (req, res) => {
                       } else {
                         let mes = `| Request -> /admin/deleteAdmitted | IP -> ${req.ip} | Admitted Student ${req.query.roll} Deleted ! | Admin -> ${req.session.username} |`;
                         logger.customLogger.log("info", mes);
+
+                        const io = req.app.get('socketio');
+                        io.emit ('refresh_page','refresing');
 
                         res.redirect("/admin/admittedStudentPage");
                       }
@@ -924,7 +1027,7 @@ router.get("/getChartData", (req, res) => {
 
 router.get("/filesSection", (req, res) => {
   if (req.session.username) {
-    if (req.session.type == "Super Admin") {
+    if (req.session.type == "Super Admin" ) {
 
       // console.log (req.query.up);
       if (req.query.up == "1") {
@@ -1350,41 +1453,8 @@ router.get("/categorySeats", (req, res) => {
 /* Getting the category seats data */
 
 router.get("/categorySeatsData", (req, res) => {
-  if (req.session.username) {
-    // if (req.query.category == "ALL") {
-    //   pool.query(
-    //     "SELECT row_number() over (order by `branch`) as sno, `branch`, `category`, `xf`, `xop`, `sf`, `sop`, `fff`, `ffop`, `hcf`, `hcop`, `nccf`, `nccop`, `tsf`, `tsop` from clc_councelling where year = ?",
-    //     [req.query.year],
-    //     (err, obj) => {
-    //       if (err) {
-    //         let mes = `| Request -> /admin/categorySeatsData | IP -> ${req.ip} | Database Error | Admin -> ${req.session.username} | `;
-    //         logger.customLogger.log("error", mes);
-    //         res.send("");
-    //       } else {
-    //         pool.query ("SELECT * from clc_councelling2 where year = ? order by branch",[req.query.year], (err2,obj2)=>{
-    //           if (err2){
-    //             let mes = `| Request -> /admin/categorySeatsData | IP -> ${req.ip} | Database Error | Admin -> ${req.session.username} | `;
-    //             logger.customLogger.log("error", mes);
-    //             res.send("");
 
-    //           }
-
-    //           else{
-    //               console.log (obj2[0]['branch']);
-    //               for (i = 0; i< obj.length ;i ++){
-    //                   obj[i][]
-    //               }
-    //           }
-    //         })
-
-    //         console.log (obj[0]);
-    //         let mes = `| Request -> /admin/categorySeatsData | IP -> ${req.ip} |All Seats Data Fetched | Admin -> ${req.session.username} | `;
-    //         logger.customLogger.log("info", mes);
-    //         res.send(obj);
-    //       }
-    //     }
-    //   );
-    // }
+  
 
     if (req.query.category != "AIUR" && req.query.category != "EWS") {
       pool.query(
@@ -1403,7 +1473,8 @@ router.get("/categorySeatsData", (req, res) => {
           }
         }
       );
-    } else {
+    } 
+    else {
       // console.log (req.query.category);
       pool.query(
         "SELECT row_number() over (order by `branch`) as sno, branch, category, seats from clc_councelling2 where `category` = ? and year = ?",
@@ -1422,11 +1493,7 @@ router.get("/categorySeatsData", (req, res) => {
         }
       );
     }
-  } else {
-    let mes = `| Request -> /admin/categorySeatsData | IP -> ${req.ip} | No Login |`;
-    logger.customLogger.log("info", mes);
-    res.render("login", { errorBox: "Please Login First !" });
-  }
+
 });
 
 // Seat Conversion Seats
@@ -1656,6 +1723,11 @@ router.get("/SeatConversionConvert", (req, res) => {
       if (req.query.fcategory == "AIUR" || req.query.fcategory == "EWS") {
         // console.log (x);
 
+        let fDate = getFormattedDateTime();
+
+      pool.query (`update activity set time = ? where act = "seats"`,[fDate],(a,b)=>{});
+      
+
         pool.query(
           `update clc_councelling c, clc_councelling2 c2 set c.XOP = c.XOP + c2.seats where c2.category = ? and c.year = ? and c2.year = ? and c.branch = c2.branch `,
           [req.query.fcategory, req.query.year, req.query.year],
@@ -1682,6 +1754,10 @@ router.get("/SeatConversionConvert", (req, res) => {
                   } else {
                     let mes = `| Request -> /admin/SeatConversionConvert | IP -> ${req.ip} | Seats Converted ${req.query.fcategory}~${req.query.fsubcategory} -> ${req.query.tcategory}~${req.query.tsubcategory} | Admin -> ${req.session.username} | `;
                     logger.customLogger.log("info", mes);
+
+                    const io = req.app.get('socketio');
+                    io.emit ('refresh_page','refresing');
+                    
                     res.send("1");
                   }
                 }
@@ -1690,6 +1766,10 @@ router.get("/SeatConversionConvert", (req, res) => {
           }
         );
       } else {
+
+        let fDate = getFormattedDateTime();
+
+        pool.query (`update activity set time = ? where act = "seats"`,[fDate],(a,b)=>{});
          // console.log (x);
 
         pool.query(`update clc_councelling c, clc_councelling d set c.${req.query.tsubcategory.toLowerCase()} = c.${req.query.tsubcategory.toLowerCase()} + d.${req.query.fsubcategory.toLowerCase()} where c.category = ? and c.year = ? and d.category = ? and d.year = ? and c.branch = d.branch`,[req.query.tcategory,req.query.year, req.query.fcategory, req.query.year], (err, obj) => {
@@ -1720,6 +1800,9 @@ router.get("/SeatConversionConvert", (req, res) => {
               } else {
                 let mes = `| Request -> /admin/SeatConversionConvert | IP -> ${req.ip} | Seats Converted ${req.query.fcategory}~${req.query.fsubcategory} -> ${req.query.tcategory}~${req.query.tsubcategory} | Admin -> ${req.session.username} | `;
                 logger.customLogger.log("info", mes);
+
+                const io = req.app.get('socketio');
+                io.emit ('refresh_page','refresing');
                 res.send("1");
               }
             });
@@ -1747,6 +1830,7 @@ router.get("/login", (req, res) => {
   let mes = `| Request -> /admin/login | IP -> ${req.ip} | Rendered Login Page |`;
   logger.customLogger.log("info", mes);
 
+
   res.render("login", { errorBox: "0" });
 });
 
@@ -1754,10 +1838,12 @@ router.get("/login", (req, res) => {
 
 router.post("/loginForm", (req, res) => {
   const text = req.body;
+  let year = new Date ();
+  year = year.getFullYear ();
 
   pool.query(
-    "SELECT * FROM `adminlogin` where `username` = ?",
-    [text.username],
+    "SELECT * FROM `adminlogin` where `username` = ? and year = ?",
+    [text.username , year],
     (err, obj) => {
       if (err) {
         console.log(err);
@@ -1809,6 +1895,7 @@ router.get("/404", (req, res) => {
   let mes = `| Request -> /admin/404 | IP -> ${req.ip} | Rendered 404 Page |`;
   logger.customLogger.log("info", mes);
   res.render("404Page");
+
 });
 
 // Logout Session
@@ -1818,6 +1905,7 @@ router.get("/logout", (req, res) => {
   logger.customLogger.log("info", mes);
 
   req.session.destroy();
+  
 
   res.redirect("/admin/login");
 });
@@ -1826,7 +1914,7 @@ router.get("/logout", (req, res) => {
 
 router.get("/feeSubmissionPage", (req, res) => {
   if (req.session.username) {
-    if (req.session.type != "Admission") {
+    if (req.session.type != "Admission" && req.session.type != "Normal") {
       let mes = `| Request -> /admin/feeSubmissionPage | IP -> ${req.ip} | Rendered Fee Submission Page | Admin -> ${req.session.username} |`;
       logger.customLogger.log("info", mes);
 
@@ -1903,7 +1991,11 @@ router.get("/admittedStudentDataFEE", (req, res) => {
 
 router.get("/addReceiptNum", (req, res) => {
   if (req.session.username) {
-    if (req.session.type != "Admission") {
+    if (req.session.type != "Admission" && req.session.type != "Normal") {
+      let fDate = getFormattedDateTime();
+
+      pool.query (`update activity set time = ? where act = "seats"`,[fDate],(a,b)=>{});
+
       pool.query(
         "update `admittedstudents` set `feestatus` = 'Submitted' , `feereceiptno` = ? where `jeerollno` = ? and year = ?",
         [req.query.num, req.query.roll, req.query.year],
@@ -1918,7 +2010,11 @@ router.get("/addReceiptNum", (req, res) => {
           } else {
             let mes = `| Request -> /admin/addReceiptNum | IP -> ${req.ip} | Fee Receipt Added ${req.query.roll} | Admin -> ${req.session.username} |`;
             logger.customLogger.log("info", mes);
+
+            const io = req.app.get('socketio');
+            io.emit ('refresh_page','refresing');
             res.send({ error: 0 });
+
           }
         }
       );
@@ -2006,7 +2102,7 @@ router.get("/fetchTableConversion", (req, res) => {
 
                   res.send("");
                 } else {
-                  console.log(obj2);
+                  
                   for (i = 0; i < obj2.length; i++) {
                     if (obj[i].branch == obj2[i].branch) {
                       // console.log ('chala');
@@ -2063,7 +2159,7 @@ router.get("/fetchTableConversion", (req, res) => {
 
                   let mes = `| Request -> /admin/fetchTableConversion | IP -> ${req.ip} | Fetched Table Data Conversion | Admin -> ${req.session.username} `;
                   logger.customLogger.log("info", mes);
-                  // console.log (obj)
+
                   res.send(obj);
                 }
               }
@@ -2080,4 +2176,183 @@ router.get("/fetchTableConversion", (req, res) => {
 });
 
 
-module.exports = router;
+
+
+/* Google Login Work */
+
+router.use(passport.initialize());
+router.use(passport.session());
+
+passport.serializeUser((user, done) => {
+  done(null, user);
+});
+
+passport.deserializeUser((user, done) => {
+  done(null, user);
+});
+
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: '922144183541-6e33bt7089ldbkm6bjn49aagdlfnl88c.apps.googleusercontent.com',
+      clientSecret: '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',
+      callbackURL: 'http://localhost:3001/admin/auth/callback',
+      passReqToCallback: true
+    },
+    (request, accessToken, refreshToken, profile, done) => {
+        const allowedDomain = 'mitsgwl.ac.in'; // Replace with your allowed domain
+      const userEmail = profile.emails[0].value;
+      const userDomain = userEmail.substring(userEmail.lastIndexOf('@') + 1);
+      
+      if (userDomain !== allowedDomain) {
+        return done(null, false, { message: 'Invalid domain' });
+      }
+
+      profile.imageUrl = profile.photos[0].value; // Add profile image URL to the profile object
+      return done(null, profile);
+    }
+    )
+);
+
+router.get('/auth', passport.authenticate('google', { scope: ['email', 'profile'] }));
+
+router.get('/auth/callback', passport.authenticate('google', {
+  successRedirect: '/admin/auth/callback/success',
+  failureRedirect: '/admin/auth/callback/failure'
+}));
+
+router.get('/auth/callback/success', (req, res) => {
+  if (!req.user) {
+
+    res.redirect('/admin/auth/callback/failure');
+  } else {
+    const { email, imageUrl, displayName } = req.user;
+    let year = new Date ();
+    year = year.getFullYear();
+    
+    pool.query (`select * from adminlogin where username = ? and year = ?`,[email , year],(err,obj)=>{
+      if (err){
+
+        console.log (err);
+        let mes = `| Request -> /admin/auth/callback/success | IP -> ${req.ip} | Server Error DB | `;
+        logger.customLogger.log("warn", mes);
+        res.render("login", { errorBox: " Server Error !" });
+        
+      }
+      
+      else{ 
+        if (obj.length != 0 ){
+
+          if (obj[0].active == "Y"){
+            req.session.username = email;
+            req.session.name = displayName;
+            req.session.type = obj[0].type;
+            req.session.profile = obj[0].profile;
+            
+            let mes = `| Request -> /admin/auth/callback/success | IP -> ${req.ip} | SuccessFul Login With Google | Admin -> ${req.session.username} |`;
+            logger.customLogger.log("info", mes);
+            res.redirect("/admin/dashboard");
+            
+          }
+          
+          else{
+            
+            let mes = `| Request -> /admin/auth/callback/success | IP -> ${req.ip} | SuccessFul Login With Google | Admin -> ${req.session.username} |`;
+            logger.customLogger.log("info", mes);
+            res.render ('login',{errorBox : "You are not Authorized ! Contact Admin"});
+          }
+   
+        }
+        
+          else{
+
+            let p = uuid () + `.png`;
+
+            saveImageUrl (imageUrl , p);
+
+            res.render ('setPswd', {errorBox : "0" , name : displayName , email : email , photo : p});
+          }
+        }
+      })
+    }
+  });
+
+  router.get('/auth/callback/failure', (req, res) => {
+    res.render("login", { errorBox: " Authorization Failed !" });
+});
+
+
+router.get('/auth/callback/incorrect-domain', (req, res) => {
+  res.render("login", { errorBox: " You are not Authorized !" });
+});
+
+
+
+
+
+/* Set the password after the google login  */
+
+
+router.post ('/setPassword',(req,res)=>{
+  const text = req.body;
+  let year = new Date ();
+  year = year.getFullYear ();
+
+  let p = aes256.encrypt (passkey , text.password);
+  pool.query (`insert into adminlogin (name , username , password , profile , type , active, year) values (?,?,?,?,"Normal" , "Y" , ?)`,[text.name , text.email, p , text.photo , year], (err,obj)=>{
+    if (err){
+      console.log (err);
+      
+      let mes = `| Request -> /admin/setPassword | IP -> ${req.ip} | Server Error DB  | `;
+      logger.customLogger.log("warn", mes);
+      res.render("login", { errorBox: " Server Error !" });
+    }
+
+    else{
+      req.session.username = text.email;
+      req.session.name = text.name;
+      req.session.type = "Normal";
+      req.session.profile = text.photo;
+
+      res.redirect('/admin/dashboard');
+    }
+    })
+  })
+  
+
+
+  /* Change the admin position */
+
+  router.post ('/changePositionAdmin', (req,res)=>{
+    if (req.session.username){
+      if (req.session.type == "Super Admin"){
+        let year = new Date ();
+        year = year.getFullYear ();
+
+        pool.query ('update adminlogin set type = ? where username = ? and year = ?' , [req.body.type , req.body.username , year] , (err,obj)=>{
+          if (err){
+            console.log (err);
+            let mes = `| Request -> /admin/changePositionAdmin | IP -> ${req.ip} | Server Error | Admin -> ${req.session.username} `;
+            logger.customLogger.log("warn", mes);
+            res.send ([]);
+          }
+          
+          else{
+            let mes = `| Request -> /admin/changePositionAdmin | IP -> ${req.ip} | ${req.body.username} Position Changed | Admin -> ${req.session.username} `;
+            logger.customLogger.log("info", mes);
+            res.send ([]);
+          }
+        })
+
+      }
+    }
+
+    else {
+      let mes = `| Request -> /admin/getYearData | IP -> ${req.ip} | No Login| `;
+      logger.customLogger.log("warn", mes);
+      res.send ([]);
+    }
+  })
+  
+  module.exports = router;
+  

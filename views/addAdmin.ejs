@@ -73,6 +73,8 @@
         overflow-y: hidden;
         overflow-x: scroll;
       }
+
+
     </style>
   </head>
   <body>
@@ -143,7 +145,7 @@
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <ul class="nav">
             <li class="nav-item nav-profile">
-              <a href="#" class="nav-link">
+              <a href="#" class="nav-link" style="white-space: normal;">
                 <div class="nav-profile-image">
                   <img src="/assets/images/admin/<%=adminImg%>" alt="profile">
                   <span class="login-status online"></span>
@@ -263,6 +265,7 @@
                               <span class="dropdown-item" onclick="updateCat('Super Admin','selAdmin'), input_update('account_type','Super')" style="cursor: pointer;">Super Admin</span>
                               <span class="dropdown-item" onclick="updateCat('Accountant','selAdmin'), input_update('account_type','Accountant')" style="cursor: pointer;">Accountant</span>
                               <span class="dropdown-item" onclick="updateCat('Admission','selAdmin'), input_update('account_type','Admission')" style="cursor: pointer;">Admission</span>
+                              <span class="dropdown-item" onclick="updateCat('Normal','selAdmin'), input_update('account_type','Normal')" style="cursor: pointer;">Normal</span>
                               
 
                             </div>
@@ -322,8 +325,19 @@
                               <td scope="row">
                                 <%=item.name%>
                               </td>
-                              <td scope="row">
-                                <%=item.type%>
+                              <td scope="row" style="display: flex; justify-content: space-between;">
+                                <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id = "<%=item.username%>Position"><%=item.type%></span></button>
+                                <div class="dropdown-menu">
+                                  
+                                  <!-- Both functions from myCustomJs -->
+                                  <span class="dropdown-item" onclick="updateCat('Super Admin','<%=item.username%>Position')" style="cursor: pointer;">Super Admin</span>
+                                  <span class="dropdown-item" onclick="updateCat('Accountant','<%=item.username%>Position')" style="cursor: pointer;">Accountant</span>
+                                  <span class="dropdown-item" onclick="updateCat('Admission','<%=item.username%>Position')" style="cursor: pointer;">Admission</span>
+                                  <span class="dropdown-item" onclick="updateCat('Normal','<%=item.username%>Position')" style="cursor: pointer;">Normal</span>
+
+                                  </div>
+
+                                  <button class="btn btn-success" onclick=" changePositionAdmin('<%=item.username%>')">Save</button>
                               </td>
         
                               <td scope="row">
@@ -355,7 +369,7 @@
                                     dis = "";
                                  }
                                  %>
-                                <button class="btn btn-danger <%=dis%>" onclick="DeleteAlert ('<%=url%>')" ><%=act%></button>
+                                <button class="btn btn-danger <%=dis%>" onclick="actiDeactiAdmin ('<%=item.username%>' , '<%=act%>')" ><%=act%></button>
                                 <!-- <input type="text" name="" id="actionDelete12" value = '<%=url%>' hidden> -->
                               </td>
 
@@ -381,6 +395,8 @@
       </div>
       <!-- page-body-wrapper ends -->
     </div>
+
+
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="/assets/vendors/js/vendor.bundle.base.js"></script>

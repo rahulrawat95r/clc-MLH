@@ -731,3 +731,230 @@
 {"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::1 | Chart data for the dashboard | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-15 00:06:73"}
 {"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/logout | IP -> ::1 | Admin Logout | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-15 00:06:75"}
 {"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/login | IP -> ::1 | Rendered Login Page |","metadata":{},"timestamp":"23-06-15 00:06:76"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/categorySeatsData | IP -> ::1 | UR Seats Data Fetched | Admin -> undefined | ","metadata":{},"timestamp":"23-06-18 18:06:66"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/login | IP -> ::1 | Rendered Login Page |","metadata":{},"timestamp":"23-06-18 18:06:07"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/loginform | IP -> ::1 | Invalid Credentials |","metadata":{},"timestamp":"23-06-18 18:06:76"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/auth/callback/success | IP -> ::1 | SuccessFul Login With Google | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:92"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::1 | Dashboard Rendered | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:97"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::1 | Chart data for the dashboard | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:25"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/logout | IP -> ::1 | Admin Logout | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:38"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/login | IP -> ::1 | Rendered Login Page |","metadata":{},"timestamp":"23-06-18 18:06:40"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/loginform | IP -> ::1 | Invalid Credentials |","metadata":{},"timestamp":"23-06-18 18:06:78"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/loginform | IP -> ::1 | Invalid Credentials |","metadata":{},"timestamp":"23-06-18 18:06:97"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/loginform | IP -> ::1 | SuccessFul Login | Admin -> kake |","metadata":{},"timestamp":"23-06-18 18:06:61"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::1 | Dashboard Rendered | Admin -> kake |","metadata":{},"timestamp":"23-06-18 18:06:62"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::1 | Chart data for the dashboard | Admin -> kake |","metadata":{},"timestamp":"23-06-18 18:06:74"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admittedStudentPage | IP -> ::1 | Admitted Student Page Rendered | Admin -> kake |","metadata":{},"timestamp":"23-06-18 18:06:11"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::1 | Years List Fetched | Admin -> kake ","metadata":{},"timestamp":"23-06-18 18:06:86"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admittedStudentData | IP -> ::1 | Fetched Admitted Student Data | Admin -> kake |","metadata":{},"timestamp":"23-06-18 18:06:90"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/feeSubmissionPage | IP -> ::1 | Rendered Fee Submission Page | Admin -> kake |","metadata":{},"timestamp":"23-06-18 18:06:60"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::1 | Years List Fetched | Admin -> kake ","metadata":{},"timestamp":"23-06-18 18:06:68"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admittedStudentDataFEE | IP -> ::1 | Fee Data Fetched | Admin -> kake |","metadata":{},"timestamp":"23-06-18 18:06:92"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/categorySeats | IP -> ::1 | Rendered Seat Status | Admin -> kake | ","metadata":{},"timestamp":"23-06-18 18:06:78"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::1 | Years List Fetched | Admin -> kake ","metadata":{},"timestamp":"23-06-18 18:06:42"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admitStudentPage | IP -> ::1 | Rendering Admit new Student Page | Admin -> kake |","metadata":{},"timestamp":"23-06-18 18:06:55"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/seatConversion | IP -> ::1 | Rendered Seats Conversion Page | Admin -> kake | ","metadata":{},"timestamp":"23-06-18 18:06:78"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::1 | Years List Fetched | Admin -> kake ","metadata":{},"timestamp":"23-06-18 18:06:41"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/findVacantCategory | IP -> ::1 | Fetched Vacant Category Data | Admin -> kake | ","metadata":{},"timestamp":"23-06-18 18:06:80"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/checkVacantSubCategory | IP -> ::1 | Vacant Sub Category Data Fetched | Admin -> kake |","metadata":{},"timestamp":"23-06-18 18:06:15"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/fetchTableConversion | IP -> ::1 | Fetched Table Data Conversion | Admin -> kake ","metadata":{},"timestamp":"23-06-18 18:06:74"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/addAdminPage | IP -> ::1 | New Admin Page Rendered | Admin -> kake |","metadata":{},"timestamp":"23-06-18 18:06:95"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/checkUsernameApi | IP -> ::1 | Username Checked | Admin -> kake |","metadata":{},"timestamp":"23-06-18 18:06:27"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/changePositionAdmin | IP -> ::1 | 2021cs29ra@mitsgwl.ac.in Position Changed | Admin -> kake ","metadata":{},"timestamp":"23-06-18 18:06:29"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/addAdminPage | IP -> ::1 | New Admin Page Rendered | Admin -> kake |","metadata":{},"timestamp":"23-06-18 18:06:31"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/checkUsernameApi | IP -> ::1 | Username Checked | Admin -> kake |","metadata":{},"timestamp":"23-06-18 18:06:54"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/logout | IP -> ::1 | Admin Logout | Admin -> kake |","metadata":{},"timestamp":"23-06-18 18:06:77"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/login | IP -> ::1 | Rendered Login Page |","metadata":{},"timestamp":"23-06-18 18:06:78"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/auth/callback/success | IP -> ::1 | SuccessFul Login With Google | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:48"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::1 | Dashboard Rendered | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:49"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::1 | Chart data for the dashboard | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:74"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admittedStudentPage | IP -> ::1 | Admitted Student Page Rendered | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:31"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::1 | Years List Fetched | Admin -> 2021cs29ra@mitsgwl.ac.in ","metadata":{},"timestamp":"23-06-18 18:06:07"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/feeSubmissionPage | IP -> ::1 | Rendered Fee Submission Page | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:39"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::1 | Years List Fetched | Admin -> 2021cs29ra@mitsgwl.ac.in ","metadata":{},"timestamp":"23-06-18 18:06:08"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/categorySeats | IP -> ::1 | Rendered Seat Status | Admin -> 2021cs29ra@mitsgwl.ac.in | ","metadata":{},"timestamp":"23-06-18 18:06:45"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::1 | Years List Fetched | Admin -> 2021cs29ra@mitsgwl.ac.in ","metadata":{},"timestamp":"23-06-18 18:06:08"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admitStudentPage | IP -> ::1 | Rendering Admit new Student Page | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:32"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/seatConversion | IP -> ::1 | Rendered Seats Conversion Page | Admin -> 2021cs29ra@mitsgwl.ac.in | ","metadata":{},"timestamp":"23-06-18 18:06:33"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::1 | Years List Fetched | Admin -> 2021cs29ra@mitsgwl.ac.in ","metadata":{},"timestamp":"23-06-18 18:06:97"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/addAdminPage | IP -> ::1 | New Admin Page Rendered | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:45"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/checkUsernameApi | IP -> ::1 | Username Checked | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:64"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/filesSection | IP -> ::1 | Data Input Files | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:87"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/addAdminPage | IP -> ::1 | New Admin Page Rendered | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:25"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/checkUsernameApi | IP -> ::1 | Username Checked | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:54"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/filesSection | IP -> ::1 | Data Input Files | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:25"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/categorySeats | IP -> ::1 | Rendered Seat Status | Admin -> 2021cs29ra@mitsgwl.ac.in | ","metadata":{},"timestamp":"23-06-18 18:06:05"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::1 | Years List Fetched | Admin -> 2021cs29ra@mitsgwl.ac.in ","metadata":{},"timestamp":"23-06-18 18:06:66"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/feeSubmissionPage | IP -> ::1 | Rendered Fee Submission Page | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:13"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::1 | Years List Fetched | Admin -> 2021cs29ra@mitsgwl.ac.in ","metadata":{},"timestamp":"23-06-18 18:06:76"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admittedStudentDataFEE | IP -> ::1 | Fee Data Fetched | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:29"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/categorySeats | IP -> ::1 | Rendered Seat Status | Admin -> 2021cs29ra@mitsgwl.ac.in | ","metadata":{},"timestamp":"23-06-18 18:06:79"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::1 | Years List Fetched | Admin -> 2021cs29ra@mitsgwl.ac.in ","metadata":{},"timestamp":"23-06-18 18:06:40"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admittedStudentPage | IP -> ::1 | Admitted Student Page Rendered | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:75"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::1 | Years List Fetched | Admin -> 2021cs29ra@mitsgwl.ac.in ","metadata":{},"timestamp":"23-06-18 18:06:35"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::1 | Dashboard Rendered | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:15"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::1 | Chart data for the dashboard | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:25"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/seatConversion | IP -> ::1 | Rendered Seats Conversion Page | Admin -> 2021cs29ra@mitsgwl.ac.in | ","metadata":{},"timestamp":"23-06-18 18:06:97"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::1 | Years List Fetched | Admin -> 2021cs29ra@mitsgwl.ac.in ","metadata":{},"timestamp":"23-06-18 18:06:58"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admitStudentPage | IP -> ::1 | Rendering Admit new Student Page | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:10"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admitStudentPage | IP -> ::1 | Rendering Admit new Student Page | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:93"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/categorySeats | IP -> ::1 | Rendered Seat Status | Admin -> 2021cs29ra@mitsgwl.ac.in | ","metadata":{},"timestamp":"23-06-18 18:06:63"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::1 | Years List Fetched | Admin -> 2021cs29ra@mitsgwl.ac.in ","metadata":{},"timestamp":"23-06-18 18:06:25"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admitStudentPage | IP -> ::1 | Rendering Admit new Student Page | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:48"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/categorySeats | IP -> ::1 | Rendered Seat Status | Admin -> 2021cs29ra@mitsgwl.ac.in | ","metadata":{},"timestamp":"23-06-18 18:06:58"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::1 | Years List Fetched | Admin -> 2021cs29ra@mitsgwl.ac.in ","metadata":{},"timestamp":"23-06-18 18:06:30"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::1 | Dashboard Rendered | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:06"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::1 | Chart data for the dashboard | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:16"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admittedStudentPage | IP -> ::1 | Admitted Student Page Rendered | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:25"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::1 | Years List Fetched | Admin -> 2021cs29ra@mitsgwl.ac.in ","metadata":{},"timestamp":"23-06-18 18:06:93"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/feeSubmissionPage | IP -> ::1 | Rendered Fee Submission Page | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:12"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::1 | Years List Fetched | Admin -> 2021cs29ra@mitsgwl.ac.in ","metadata":{},"timestamp":"23-06-18 18:06:81"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/categorySeats | IP -> ::1 | Rendered Seat Status | Admin -> 2021cs29ra@mitsgwl.ac.in | ","metadata":{},"timestamp":"23-06-18 18:06:55"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::1 | Years List Fetched | Admin -> 2021cs29ra@mitsgwl.ac.in ","metadata":{},"timestamp":"23-06-18 18:06:13"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admittedStudentPage | IP -> ::1 | Admitted Student Page Rendered | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:23"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::1 | Years List Fetched | Admin -> 2021cs29ra@mitsgwl.ac.in ","metadata":{},"timestamp":"23-06-18 18:06:70"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admittedStudentData | IP -> ::1 | Fetched Admitted Student Data | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:20"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admitStudentPage | IP -> ::1 | Rendering Admit new Student Page | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:40"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/seatConversion | IP -> ::1 | Rendered Seats Conversion Page | Admin -> 2021cs29ra@mitsgwl.ac.in | ","metadata":{},"timestamp":"23-06-18 18:06:50"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::1 | Years List Fetched | Admin -> 2021cs29ra@mitsgwl.ac.in ","metadata":{},"timestamp":"23-06-18 18:06:01"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/addAdminPage | IP -> ::1 | New Admin Page Rendered | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:11"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/checkUsernameApi | IP -> ::1 | Username Checked | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:91"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/feeSubmissionPage | IP -> ::1 | Rendered Fee Submission Page | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:14"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::1 | Years List Fetched | Admin -> 2021cs29ra@mitsgwl.ac.in ","metadata":{},"timestamp":"23-06-18 18:06:63"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/categorySeats | IP -> ::1 | Rendered Seat Status | Admin -> 2021cs29ra@mitsgwl.ac.in | ","metadata":{},"timestamp":"23-06-18 18:06:55"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::1 | Years List Fetched | Admin -> 2021cs29ra@mitsgwl.ac.in ","metadata":{},"timestamp":"23-06-18 18:06:02"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/logout | IP -> ::1 | Admin Logout | Admin -> 2021cs29ra@mitsgwl.ac.in |","metadata":{},"timestamp":"23-06-18 18:06:44"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/login | IP -> ::1 | Rendered Login Page |","metadata":{},"timestamp":"23-06-18 18:06:45"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/login | IP -> ::ffff:127.0.0.1 | Rendered Login Page |","metadata":{},"timestamp":"23-07-07 12:07:40"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/loginform | IP -> ::ffff:127.0.0.1 | Invalid Credentials |","metadata":{},"timestamp":"23-07-07 12:07:97"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/loginform | IP -> ::ffff:127.0.0.1 | SuccessFul Login | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:76"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::ffff:127.0.0.1 | Dashboard Rendered | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:78"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::ffff:127.0.0.1 | Chart data for the dashboard | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:00"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admittedStudentPage | IP -> ::ffff:127.0.0.1 | Admitted Student Page Rendered | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:21"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::ffff:127.0.0.1 | Years List Fetched | Admin -> kake ","metadata":{},"timestamp":"23-07-07 12:07:39"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/categorySeats | IP -> ::ffff:127.0.0.1 | Rendered Seat Status | Admin -> kake | ","metadata":{},"timestamp":"23-07-07 12:07:72"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::ffff:127.0.0.1 | Years List Fetched | Admin -> kake ","metadata":{},"timestamp":"23-07-07 12:07:61"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/categorySeatsData | IP -> ::ffff:127.0.0.1 | SC Seats Data Fetched | Admin -> kake | ","metadata":{},"timestamp":"23-07-07 12:07:22"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admitStudentPage | IP -> ::ffff:127.0.0.1 | Rendering Admit new Student Page | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:17"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::ffff:127.0.0.1 | Dashboard Rendered | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:81"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::ffff:127.0.0.1 | Chart data for the dashboard | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:96"}
+{"label":"[ LOGS ]","level":"warn","message":"| Request -> /admin/dashboard | IP -> ::ffff:127.0.0.1 | No Login |","metadata":{},"timestamp":"23-07-07 12:07:88"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/loginform | IP -> ::ffff:127.0.0.1 | SuccessFul Login | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:21"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::ffff:127.0.0.1 | Dashboard Rendered | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:22"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::ffff:127.0.0.1 | Chart data for the dashboard | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:45"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/filesSection | IP -> ::ffff:127.0.0.1 | Data Input Files | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:04"}
+{"label":"[ LOGS ]","level":"warn","message":"| Request -> /admin/uploadMerit | IP -> ::ffff:127.0.0.1 | Server Error | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:10"}
+{"label":"[ LOGS ]","level":"warn","message":"| Request -> /admin/filesSection | IP -> ::ffff:127.0.0.1 | Wrong Files | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:11"}
+{"label":"[ LOGS ]","level":"warn","message":"| Request -> /admin/filesSection | IP -> ::ffff:127.0.0.1 | Wrong Files | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:89"}
+{"label":"[ LOGS ]","level":"warn","message":"| Request -> /admin/filesSection | IP -> ::ffff:127.0.0.1 | No Login |","metadata":{},"timestamp":"23-07-07 12:07:58"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/loginform | IP -> ::ffff:127.0.0.1 | SuccessFul Login | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:21"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::ffff:127.0.0.1 | Dashboard Rendered | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:23"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::ffff:127.0.0.1 | Chart data for the dashboard | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:49"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/filesSection | IP -> ::ffff:127.0.0.1 | Data Input Files | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:67"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/uploadMerit | IP -> ::ffff:127.0.0.1 | Merit List Uploaded | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:19"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/filesSection | IP -> ::ffff:127.0.0.1 | Files Uploaded Sucess | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:20"}
+{"label":"[ LOGS ]","level":"warn","message":"| Request -> /admin/filesSection | IP -> ::ffff:127.0.0.1 | No Login |","metadata":{},"timestamp":"23-07-07 12:07:75"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/loginform | IP -> ::ffff:127.0.0.1 | SuccessFul Login | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:40"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::ffff:127.0.0.1 | Dashboard Rendered | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:41"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::ffff:127.0.0.1 | Chart data for the dashboard | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:66"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::ffff:127.0.0.1 | Dashboard Rendered | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:51"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::ffff:127.0.0.1 | Chart data for the dashboard | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:68"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/filesSection | IP -> ::ffff:127.0.0.1 | Data Input Files | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:83"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/uploadVacancy | IP -> ::ffff:127.0.0.1 | Vacacy Uploaded | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:61"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/filesSection | IP -> ::ffff:127.0.0.1 | Files Uploaded Sucess | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:62"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::ffff:127.0.0.1 | Dashboard Rendered | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:23"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::ffff:127.0.0.1 | Chart data for the dashboard | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:43"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admittedStudentPage | IP -> ::ffff:127.0.0.1 | Admitted Student Page Rendered | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:48"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::ffff:127.0.0.1 | Years List Fetched | Admin -> kake ","metadata":{},"timestamp":"23-07-07 12:07:54"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admittedStudentData | IP -> ::ffff:127.0.0.1 | Fetched Admitted Student Data | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:26"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/feeSubmissionPage | IP -> ::ffff:127.0.0.1 | Rendered Fee Submission Page | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:92"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::ffff:127.0.0.1 | Years List Fetched | Admin -> kake ","metadata":{},"timestamp":"23-07-07 12:07:95"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admittedStudentDataFEE | IP -> ::ffff:127.0.0.1 | Fee Data Fetched | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:88"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/seatConversion | IP -> ::ffff:127.0.0.1 | Rendered Seats Conversion Page | Admin -> kake | ","metadata":{},"timestamp":"23-07-07 12:07:51"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::ffff:127.0.0.1 | Years List Fetched | Admin -> kake ","metadata":{},"timestamp":"23-07-07 12:07:41"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/findVacantCategory | IP -> ::ffff:127.0.0.1 | Fetched Vacant Category Data | Admin -> kake | ","metadata":{},"timestamp":"23-07-07 12:07:50"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/checkVacantSubCategory | IP -> ::ffff:127.0.0.1 | Vacant Sub Category Data Fetched | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:25"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/fetchTableConversion | IP -> ::ffff:127.0.0.1 | Fetched Table Data Conversion | Admin -> kake ","metadata":{},"timestamp":"23-07-07 12:07:40"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/SeatConversionConvert | IP -> ::ffff:127.0.0.1 | Seats Converted OBC~XF -> OBC~XOP | Admin -> kake | ","metadata":{},"timestamp":"23-07-07 12:07:63"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/fetchTableConversion | IP -> ::ffff:127.0.0.1 | Fetched Table Data Conversion | Admin -> kake ","metadata":{},"timestamp":"23-07-07 12:07:69"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admitStudentPage | IP -> ::ffff:127.0.0.1 | Rendering Admit new Student Page | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:85"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/searchStudent | IP -> ::ffff:127.0.0.1 | Student Found | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:01"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/checkVacantSubCategory | IP -> ::ffff:127.0.0.1 | Vacant Sub Category Data Fetched | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:26"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/checkVacantSubCategory | IP -> ::ffff:127.0.0.1 | Vacant Sub Category Data Fetched | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:64"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/checkVacantBranches | IP -> ::ffff:127.0.0.1 | Fetched Vacant Branches | Admin -> kake | ","metadata":{},"timestamp":"23-07-07 12:07:12"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/checkAvailability | IP -> ::ffff:127.0.0.1 | Fetched Available Seats | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:28"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admitStudentForm | IP -> ::ffff:127.0.0.1 | Student 220310000510 Admitted | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:79"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admitStudentPage | IP -> ::ffff:127.0.0.1 | Rendering Admit new Student Page | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:80"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::ffff:127.0.0.1 | Dashboard Rendered | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:86"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::ffff:127.0.0.1 | Chart data for the dashboard | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:21"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/categorySeats | IP -> ::ffff:127.0.0.1 | Rendered Seat Status | Admin -> kake | ","metadata":{},"timestamp":"23-07-07 12:07:64"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::ffff:127.0.0.1 | Years List Fetched | Admin -> kake ","metadata":{},"timestamp":"23-07-07 12:07:58"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admittedStudentPage | IP -> ::ffff:127.0.0.1 | Admitted Student Page Rendered | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:66"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::ffff:127.0.0.1 | Years List Fetched | Admin -> kake ","metadata":{},"timestamp":"23-07-07 12:07:82"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admittedStudentData | IP -> ::ffff:127.0.0.1 | Fetched Admitted Student Data | Admin -> kake |","metadata":{},"timestamp":"23-07-07 12:07:49"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/categorySeats | IP -> ::ffff:127.0.0.1 | Rendered Seat Status | Admin -> kake | ","metadata":{},"timestamp":"23-07-07 12:07:45"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::ffff:127.0.0.1 | Years List Fetched | Admin -> kake ","metadata":{},"timestamp":"23-07-07 12:07:36"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/categorySeatsData | IP -> ::ffff:127.0.0.1 | UR Seats Data Fetched | Admin -> kake | ","metadata":{},"timestamp":"23-07-07 12:07:42"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/categorySeatsData | IP -> ::ffff:127.0.0.1 | AIUR Seats Data Fetched | Admin -> kake | ","metadata":{},"timestamp":"23-07-07 12:07:70"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/feeSubmissionPage | IP -> ::ffff:127.0.0.1 | Rendered Fee Submission Page | Admin -> kake |","metadata":{},"timestamp":"23-07-07 13:07:80"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::ffff:127.0.0.1 | Years List Fetched | Admin -> kake ","metadata":{},"timestamp":"23-07-07 13:07:87"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admittedStudentPage | IP -> ::ffff:127.0.0.1 | Admitted Student Page Rendered | Admin -> kake |","metadata":{},"timestamp":"23-07-07 13:07:44"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::ffff:127.0.0.1 | Years List Fetched | Admin -> kake ","metadata":{},"timestamp":"23-07-07 13:07:34"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admittedStudentData | IP -> ::ffff:127.0.0.1 | Fetched Admitted Student Data | Admin -> kake |","metadata":{},"timestamp":"23-07-07 13:07:83"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/feeSubmissionPage | IP -> ::ffff:127.0.0.1 | Rendered Fee Submission Page | Admin -> kake |","metadata":{},"timestamp":"23-07-07 13:07:71"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::ffff:127.0.0.1 | Years List Fetched | Admin -> kake ","metadata":{},"timestamp":"23-07-07 13:07:72"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/categorySeats | IP -> ::ffff:127.0.0.1 | Rendered Seat Status | Admin -> kake | ","metadata":{},"timestamp":"23-07-07 13:07:52"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::ffff:127.0.0.1 | Years List Fetched | Admin -> kake ","metadata":{},"timestamp":"23-07-07 13:07:49"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/categorySeatsData | IP -> ::ffff:127.0.0.1 | AIUR Seats Data Fetched | Admin -> kake | ","metadata":{},"timestamp":"23-07-07 13:07:59"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/categorySeatsData | IP -> ::ffff:127.0.0.1 | UR Seats Data Fetched | Admin -> kake | ","metadata":{},"timestamp":"23-07-07 13:07:82"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admitStudentPage | IP -> ::ffff:127.0.0.1 | Rendering Admit new Student Page | Admin -> kake |","metadata":{},"timestamp":"23-07-07 13:07:36"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/searchStudent | IP -> ::ffff:127.0.0.1 | Student Already Admitted | Admin -> kake |","metadata":{},"timestamp":"23-07-07 13:07:14"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/addAdminPage | IP -> ::ffff:127.0.0.1 | New Admin Page Rendered | Admin -> kake |","metadata":{},"timestamp":"23-07-07 13:07:12"}
+{"label":"[ LOGS ]","level":"warn","message":"| Request -> /admin/addAdminPage | IP -> ::ffff:127.0.0.1 | No Login |","metadata":{},"timestamp":"23-07-07 13:07:87"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/login | IP -> ::ffff:127.0.0.1 | Rendered Login Page |","metadata":{},"timestamp":"23-07-07 13:07:07"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/login | IP -> ::ffff:127.0.0.1 | Rendered Login Page |","metadata":{},"timestamp":"23-07-07 13:07:44"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/loginform | IP -> ::ffff:127.0.0.1 | SuccessFul Login | Admin -> kake |","metadata":{},"timestamp":"23-07-07 13:07:56"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::ffff:127.0.0.1 | Dashboard Rendered | Admin -> kake |","metadata":{},"timestamp":"23-07-07 13:07:58"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::ffff:127.0.0.1 | Chart data for the dashboard | Admin -> kake |","metadata":{},"timestamp":"23-07-07 13:07:89"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/login | IP -> ::ffff:127.0.0.1 | Rendered Login Page |","metadata":{},"timestamp":"23-07-11 12:07:33"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/login | IP -> ::ffff:127.0.0.1 | Rendered Login Page |","metadata":{},"timestamp":"23-07-11 12:07:27"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/login | IP -> ::ffff:127.0.0.1 | Rendered Login Page |","metadata":{},"timestamp":"23-07-11 12:07:24"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/login | IP -> ::ffff:127.0.0.1 | Rendered Login Page |","metadata":{},"timestamp":"23-07-11 12:07:01"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/login | IP -> ::ffff:127.0.0.1 | Rendered Login Page |","metadata":{},"timestamp":"23-07-11 12:07:40"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/loginform | IP -> ::ffff:127.0.0.1 | SuccessFul Login | Admin -> kake |","metadata":{},"timestamp":"23-07-11 12:07:39"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::ffff:127.0.0.1 | Dashboard Rendered | Admin -> kake |","metadata":{},"timestamp":"23-07-11 12:07:42"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::ffff:127.0.0.1 | Chart data for the dashboard | Admin -> kake |","metadata":{},"timestamp":"23-07-11 12:07:68"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admittedStudentPage | IP -> ::ffff:127.0.0.1 | Admitted Student Page Rendered | Admin -> kake |","metadata":{},"timestamp":"23-07-11 12:07:83"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::ffff:127.0.0.1 | Years List Fetched | Admin -> kake ","metadata":{},"timestamp":"23-07-11 12:07:87"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admittedStudentData | IP -> ::ffff:127.0.0.1 | Fetched Admitted Student Data | Admin -> kake |","metadata":{},"timestamp":"23-07-11 12:07:81"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::ffff:127.0.0.1 | Dashboard Rendered | Admin -> kake |","metadata":{},"timestamp":"23-07-11 12:07:75"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::ffff:127.0.0.1 | Chart data for the dashboard | Admin -> kake |","metadata":{},"timestamp":"23-07-11 12:07:88"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/feeSubmissionPage | IP -> ::ffff:127.0.0.1 | Rendered Fee Submission Page | Admin -> kake |","metadata":{},"timestamp":"23-07-11 12:07:53"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::ffff:127.0.0.1 | Years List Fetched | Admin -> kake ","metadata":{},"timestamp":"23-07-11 12:07:34"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admittedStudentDataFEE | IP -> ::ffff:127.0.0.1 | Fee Data Fetched | Admin -> kake |","metadata":{},"timestamp":"23-07-11 12:07:47"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/categorySeats | IP -> ::ffff:127.0.0.1 | Rendered Seat Status | Admin -> kake | ","metadata":{},"timestamp":"23-07-11 12:07:16"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::ffff:127.0.0.1 | Years List Fetched | Admin -> kake ","metadata":{},"timestamp":"23-07-11 12:07:87"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admitStudentPage | IP -> ::ffff:127.0.0.1 | Rendering Admit new Student Page | Admin -> kake |","metadata":{},"timestamp":"23-07-11 12:07:61"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/seatConversion | IP -> ::ffff:127.0.0.1 | Rendered Seats Conversion Page | Admin -> kake | ","metadata":{},"timestamp":"23-07-11 12:07:95"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::ffff:127.0.0.1 | Years List Fetched | Admin -> kake ","metadata":{},"timestamp":"23-07-11 12:07:65"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/findVacantCategory | IP -> ::ffff:127.0.0.1 | Fetched Vacant Category Data | Admin -> kake | ","metadata":{},"timestamp":"23-07-11 12:07:10"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/checkVacantSubCategory | IP -> ::ffff:127.0.0.1 | Vacant Sub Category Data Fetched | Admin -> kake |","metadata":{},"timestamp":"23-07-11 12:07:57"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/fetchTableConversion | IP -> ::ffff:127.0.0.1 | Fetched Table Data Conversion | Admin -> kake ","metadata":{},"timestamp":"23-07-11 12:07:42"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/addAdminPage | IP -> ::ffff:127.0.0.1 | New Admin Page Rendered | Admin -> kake |","metadata":{},"timestamp":"23-07-11 12:07:59"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/categorySeats | IP -> ::ffff:127.0.0.1 | Rendered Seat Status | Admin -> kake | ","metadata":{},"timestamp":"23-07-11 12:07:51"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::ffff:127.0.0.1 | Years List Fetched | Admin -> kake ","metadata":{},"timestamp":"23-07-11 12:07:12"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/feeSubmissionPage | IP -> ::ffff:127.0.0.1 | Rendered Fee Submission Page | Admin -> kake |","metadata":{},"timestamp":"23-07-11 12:07:66"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::ffff:127.0.0.1 | Years List Fetched | Admin -> kake ","metadata":{},"timestamp":"23-07-11 12:07:31"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admitStudentPage | IP -> ::ffff:127.0.0.1 | Rendering Admit new Student Page | Admin -> kake |","metadata":{},"timestamp":"23-07-11 12:07:06"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::ffff:127.0.0.1 | Dashboard Rendered | Admin -> kake |","metadata":{},"timestamp":"23-07-11 12:07:42"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::ffff:127.0.0.1 | Chart data for the dashboard | Admin -> kake |","metadata":{},"timestamp":"23-07-11 12:07:58"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admittedStudentPage | IP -> ::ffff:127.0.0.1 | Admitted Student Page Rendered | Admin -> kake |","metadata":{},"timestamp":"23-07-11 12:07:10"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::ffff:127.0.0.1 | Years List Fetched | Admin -> kake ","metadata":{},"timestamp":"23-07-11 12:07:76"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/feeSubmissionPage | IP -> ::ffff:127.0.0.1 | Rendered Fee Submission Page | Admin -> kake |","metadata":{},"timestamp":"23-07-11 12:07:54"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::ffff:127.0.0.1 | Years List Fetched | Admin -> kake ","metadata":{},"timestamp":"23-07-11 12:07:17"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admittedStudentDataFEE | IP -> ::ffff:127.0.0.1 | Fee Data Fetched | Admin -> kake |","metadata":{},"timestamp":"23-07-11 12:07:84"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/categorySeats | IP -> ::ffff:127.0.0.1 | Rendered Seat Status | Admin -> kake | ","metadata":{},"timestamp":"23-07-11 12:07:83"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::ffff:127.0.0.1 | Years List Fetched | Admin -> kake ","metadata":{},"timestamp":"23-07-11 12:07:45"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/feeSubmissionPage | IP -> ::ffff:127.0.0.1 | Rendered Fee Submission Page | Admin -> kake |","metadata":{},"timestamp":"23-07-11 12:07:03"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::ffff:127.0.0.1 | Years List Fetched | Admin -> kake ","metadata":{},"timestamp":"23-07-11 12:07:65"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admitStudentPage | IP -> ::ffff:127.0.0.1 | Rendering Admit new Student Page | Admin -> kake |","metadata":{},"timestamp":"23-07-11 12:07:97"}

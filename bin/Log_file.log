@@ -1,0 +1,2 @@
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/login | IP -> ::1 | Rendered Login Page |","metadata":{},"timestamp":"23-06-25 18:06:59"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/categorySeatsData | IP -> ::1 | UR Seats Data Fetched | Admin -> undefined | ","metadata":{},"timestamp":"23-06-25 18:06:38"}

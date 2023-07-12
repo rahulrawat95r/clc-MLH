@@ -817,6 +817,7 @@ router.get("/deleteAdmitted", (req, res) => {
         (err, obj) => {
           if (err) {
             console.log(err);
+            
             let mes = `| Request -> /admin/deleteAdmitted | IP -> ${req.ip} | Database Error | Admin -> ${req.session.username} |`;
             logger.customLogger.log("error", mes);
 
@@ -1051,7 +1052,7 @@ router.get("/filesSection", (req, res) => {
         });
       }
       else if (req.query.up == "3"){
-        let mes = `| Request -> /admin/filesSection | IP -> ${req.ip} | Wrong Files | Admin -> ${req.session.username} |`;
+        let mes = `| Request -> /admin/filesSection | IP -> ${req.ip} | Server Error | Admin -> ${req.session.username} |`;
         logger.customLogger.log("warn", mes);
         res.render("dataInput", {
           error: "Server Error.. !",
@@ -1114,51 +1115,112 @@ router.post("/uploadMerit", uploadExcel.single("MERIT_LIST"), (req, res) => {
               res.redirect('/admin/filesSection?up=3');
             } else {
               
+              let values1 = [];
               // console.log (data);
               data.forEach((item) => {
-                pool.query(
-                  "INSERT INTO `merit_list` (`SNo`, `Rollno`, `Name`, `DOB`, `Gender`, `Father`, `Category`, `Domicile`, `Marks_per`, `Maths_per`, `Physics_per`,`Chemistry_Bio_BioTech_Tech_Voc_per`,`Phy_Obt_Outof`, `Chem_Obt_Outof`, `Maths_Obt_Outof`,`PCM`, `Perc_per`, `JEERank`, `Candidate_Type`,`year`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ",
-                  [
-                    item["SNo."],
-                    item["Rollno"],
-                    item["Name"],
-                    ExcelToCSV.datechanger(item["DOB"]),
-                    item["Gender"],
-                    item["Father"],
-                    item["Category"],
-                    item["Domicile"],
-                    item["Marks (%)"],
-                    item["Maths%"],
-                    item["Physics%"],
-                    item["Chemistry/Bio/BioTech/Tech.Voc%"],
-                    item["Phy.(Obt/Outof)"],
-                    item["Chem.(Obt/Outof)"],
-                    item["Maths(Obt/Outof)"],
-                    item["PCM"],
-                    item["Perc (%)"],
-                    item["JEERank"],
-                    item["Candidate Type"],
-                    year,
-                  ],
-                  (err2, obj2) => {
-                    // pool.query ("INSERT INTO `merit_list` (`SNo`, `Rollno`, `Name`, `DOB`, `Gender`, `Father`, `Category`, `Domicile`, `Marks_per`, `Maths_per`, `Physics_per`,`Chemistry_Bio_BioTech_Tech_Voc_per`,`Phy_Obt_Outof`, `Chem_Obt_Outof`, `Maths_Obt_Outof`,`PCM`, `Perc_per`, `JEERank`, `Candidate_Type`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ", ("1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1"),(err,obj)=>{
-                      if (err2) {
-                        console.log(err2);
-                        let mes = `| Request -> /admin/uploadMerit | IP -> ${req.ip} | Database Error | Admin -> ${req.session.username} |`;
-                        logger.customLogger.log("error", mes);
+
+                let d = [...Array(20)];
+
+                d[0] = item["SNo."];
+
+                d[1] = item['Rollno'];
+
+                d[2] = item['Name'];
+
+                d[3] = ExcelToCSV.datechanger(item["DOB"]);
+
+                d[4] = item["Gender"];
+
+                d[5] = item["Father"];
+
+                d[6] = item["Category"];
+
+                d[7] = item["Domicile"];
+
+                d[8] = item["Marks (%)"];
+
+                d[9] = item["Maths%"];
+
+                d[10] = item["Physics%"];
+
+                d[11] = item["Chemistry/Bio/BioTech/Tech.Voc%"];
+
+                d[12] = item["Phy.(Obt/Outof)"];
+
+                d[13] = item["Chem.(Obt/Outof)"];
+
+                d[14] = item["Maths(Obt/Outof)"];
+
+                d[15] = item["PCM"];
+
+                d[16] = item["Perc (%)"];
+
+                d[17] = item["JEERank"];
+
+
+                d[18] = item["Candidate Type"];
+
+                d[19] = year;
+
+                values1.push (d);
+
+                // pool.query(
+                //   "INSERT INTO `merit_list` (`SNo`, `Rollno`, `Name`, `DOB`, `Gender`, `Father`, `Category`, `Domicile`, `Marks_per`, `Maths_per`, `Physics_per`,`Chemistry_Bio_BioTech_Tech_Voc_per`,`Phy_Obt_Outof`, `Chem_Obt_Outof`, `Maths_Obt_Outof`,`PCM`, `Perc_per`, `JEERank`, `Candidate_Type`,`year`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ",
+                //   [
+                //     item["SNo."],
+                //     item["Rollno"],
+                //     item["Name"],
+                //     ExcelToCSV.datechanger(item["DOB"]),
+                //     item["Gender"],
+                //     item["Father"],
+                //     item["Category"],
+                //     item["Domicile"],
+                //     item["Marks (%)"],
+                //     item["Maths%"],
+                //     item["Physics%"],
+                //     item["Chemistry/Bio/BioTech/Tech.Voc%"],
+                //     item["Phy.(Obt/Outof)"],
+                //     item["Chem.(Obt/Outof)"],
+                //     item["Maths(Obt/Outof)"],
+                //     item["PCM"],
+                //     item["Perc (%)"],
+                //     item["JEERank"],
+                //     item["Candidate Type"],
+                //     year,
+                //   ],
+                //   (err2, obj2) => {
+                //     // pool.query ("INSERT INTO `merit_list` (`SNo`, `Rollno`, `Name`, `DOB`, `Gender`, `Father`, `Category`, `Domicile`, `Marks_per`, `Maths_per`, `Physics_per`,`Chemistry_Bio_BioTech_Tech_Voc_per`,`Phy_Obt_Outof`, `Chem_Obt_Outof`, `Maths_Obt_Outof`,`PCM`, `Perc_per`, `JEERank`, `Candidate_Type`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ", ("1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1"),(err,obj)=>{
+                //       if (err2) {
+                //         console.log(err2);
+                //         let mes = `| Request -> /admin/uploadMerit | IP -> ${req.ip} | Database Error | Admin -> ${req.session.username} |`;
+                //         logger.customLogger.log("error", mes);
                         
-                        // console.log (data[0]['xf'])
+                //         // console.log (data[0]['xf'])
                         
-                        // res.redirect('/admin/filesSection?up="1"');
-                    }
+                //         // res.redirect('/admin/filesSection?up="1"');
+                //     }
   
-                    // console.log (item['SNo.'])
-                  }
-                );
+                //     // console.log (item['SNo.'])
+                //   }
+                // );
               });
-              let mes = `| Request -> /admin/uploadMerit | IP -> ${req.ip} | Merit List Uploaded | Admin -> ${req.session.username} |`;
-              logger.customLogger.log("info", mes);
-              res.redirect('/admin/filesSection?up=1');
+
+              pool.query ('INSERT INTO `merit_list` (`SNo`, `Rollno`, `Name`, `DOB`, `Gender`, `Father`, `Category`, `Domicile`, `Marks_per`, `Maths_per`, `Physics_per`,`Chemistry_Bio_BioTech_Tech_Voc_per`,`Phy_Obt_Outof`, `Chem_Obt_Outof`, `Maths_Obt_Outof`,`PCM`, `Perc_per`, `JEERank`, `Candidate_Type`,`year`) VALUES ?',[values1],(err,obj)=>{
+                if (err){
+                  console.log (err);
+                  let mes = `| Request -> /admin/uploadMerit | IP -> ${req.ip} | Server Error | Admin -> ${req.session.username} |`;
+                logger.customLogger.log("warn", mes);
+                res.redirect('/admin/filesSection?up=3');
+                }
+
+                else{
+                  let mes = `| Request -> /admin/uploadMerit | IP -> ${req.ip} | Merit List Uploaded | Admin -> ${req.session.username} |`;
+                  logger.customLogger.log("info", mes);
+                  res.redirect('/admin/filesSection?up=1');
+                }
+              })
+
+              
             }
           }
         );
@@ -1237,171 +1299,382 @@ router.post(
                 let mes = `| Request -> /admin/uploadVacancy | IP -> ${req.ip} | Database  (DELETING CLC COUNCELLING) | Admin -> ${req.session.username} |`;
                 logger.customLogger.log("error", mes);
               } else {
+
+                let total1 = [];
+
+                let ur1 = [];
+
+                let obc1 = [];
+
+                let sc1 = [];
+
+                let st1 = [];
+
+                let ai1 = [];
+                let ews1 = [];
+
+
                 data.forEach((item) => {
                   /* For uploading the total seats branch wise  */
+
+                  let d1 = [...Array(3)];
+
+                  d1[0] = item["Branch/Course"];
+
+                  d1[1] = item["Total Seats"];
+
+                  d1[2] = year;
+
+                  total1.push (d1);
   
-                  pool.query(
-                    "INSERT INTO `total_seats` ( `branch`, `seats` ,`year` ) values (?,?,?)",
-                    [item["Branch/Course"], item["Total Seats"], year],
-                    (err4, obj) => {
-                      if (err4) {
-                        console.log(err4);
-                        let mes = `| Request -> /admin/uploadVacancy | IP -> ${req.ip} | Database Error (TOTAL SEATS) | Admin -> ${req.session.username} |`;
-                        logger.customLogger.log("error", mes);
-                      }
-                    }
-                  );
+                  // pool.query(
+                  //   "INSERT INTO `total_seats` ( `branch`, `seats` ,`year` ) values (?,?,?)",
+                  //   [item["Branch/Course"], item["Total Seats"], year],
+                  //   (err4, obj) => {
+                  //     if (err4) {
+                  //       console.log(err4);
+                  //       let mes = `| Request -> /admin/uploadVacancy | IP -> ${req.ip} | Database Error (TOTAL SEATS) | Admin -> ${req.session.username} |`;
+                  //       logger.customLogger.log("error", mes);
+                  //     }
+                  //   }
+                  // );
+
+                  let d2 = [...Array(15)];
+
+                      d2[0] = item["Branch/Course"]
+                      d2[1] = "UR"
+                      d2[2] = item["URXF"]
+                      d2[3] = item["URXOP"]
+                      d2[4] = item["URSF"]
+                      d2[5] = item["URSOP"]
+                      d2[6] = item["URFFF"]
+                      d2[7] = item["URFFOP"]
+                      d2[8] = item["URHCF"]
+                      d2[9] = item["URHCOP"]
+                      d2[10] = item["URNCCF"]
+                      d2[11] = item["URNCCOP"]
+                      d2[12] = item["URTSF"]
+                      d2[13] = item["URTSOP"]
+                      d2[14] = year
+
+                      ur1.push (d2);
   
                   /* For UR category */
-                  pool.query(
-                    "INSERT INTO `clc_councelling`(`branch`, `category`, `xf`, `xop`, `sf`, `sop`, `fff`, `ffop`, `hcf`, `hcop`, `nccf`, `nccop`, `tsf`, `tsop` ,`year`) VALUES ( ?,?,?,?,?,?,?,?,?,?,?,?,?,?,? )",
-                    [
-                      item["Branch/Course"],
-                      "UR",
-                      item["URXF"],
-                      item["URXOP"],
-                      item["URSF"],
-                      item["URSOP"],
-                      item["URFFF"],
-                      item["URFFOP"],
-                      item["URHCF"],
-                      item["URHCOP"],
-                      item["URNCCF"],
-                      item["URNCCOP"],
-                      item["URTSF"],
-                      item["URTSOP"],
-                      year,
-                    ],
-                    (err5, obj) => {
-                      if (err5) {
-                        console.log(err5);
-                        let mes = `| Request -> /admin/uploadVacancy | IP -> ${req.ip} | Database Error (UR) | Admin -> ${req.session.username} |`;
-                        logger.customLogger.log("error", mes);
-                      }
-                    }
-                  );
+                  // pool.query(
+                  //   "INSERT INTO `clc_councelling`(`branch`, `category`, `xf`, `xop`, `sf`, `sop`, `fff`, `ffop`, `hcf`, `hcop`, `nccf`, `nccop`, `tsf`, `tsop` ,`year`) VALUES ( ?,?,?,?,?,?,?,?,?,?,?,?,?,?,? )",
+                  //   [
+                  //     item["Branch/Course"],
+                  //     "UR",
+                  //     item["URXF"],
+                  //     item["URXOP"],
+                  //     item["URSF"],
+                  //     item["URSOP"],
+                  //     item["URFFF"],
+                  //     item["URFFOP"],
+                  //     item["URHCF"],
+                  //     item["URHCOP"],
+                  //     item["URNCCF"],
+                  //     item["URNCCOP"],
+                  //     item["URTSF"],
+                  //     item["URTSOP"],
+                  //     year,
+                  //   ],
+                  //   (err5, obj) => {
+                  //     if (err5) {
+                  //       console.log(err5);
+                  //       let mes = `| Request -> /admin/uploadVacancy | IP -> ${req.ip} | Database Error (UR) | Admin -> ${req.session.username} |`;
+                  //       logger.customLogger.log("error", mes);
+                  //     }
+                  //   }
+                  // );
   
                   /* For OBC category */
-                  pool.query(
-                    "INSERT INTO `clc_councelling`(`branch`, `category`, `xf`, `xop`, `sf`, `sop`, `fff`, `ffop`, `hcf`, `hcop`, `nccf`, `nccop`, `tsf`, `tsop`,`year`) VALUES ( ?,?,?,?,?,?,?,?,?,?,?,?,?,?,? )",
-                    [
-                      item["Branch/Course"],
-                      "OBC",
-                      item["OBCXF"],
-                      item["OBCXOP"],
-                      item["OBCSF"],
-                      item["OBCSOP"],
-                      item["OBCFFF"],
-                      item["OBCFFOP"],
-                      item["OBCHCF"],
-                      item["OBCHCOP"],
-                      item["OBCNCCF"],
-                      item["OBCNCCOP"],
-                      item["OBCTSF"],
-                      item["OBCTSOP"],
-                      year,
-                    ],
-                    (err6, obj) => {
-                      if (err6) {
-                        console.log(err6);
-                        let mes = `| Request -> /admin/uploadVacancy | IP -> ${req.ip} | Database Error (OBC) | Admin -> ${req.session.username} |`;
-                        logger.customLogger.log("error", mes);
-                      }
-                    }
-                  );
+
+                  let d3 = [...Array(15)];
+
+                      d3[0] = item["Branch/Course"]
+                      d3[1] = "OBC"
+                      d3[2] = item["OBCXF"]
+                      d3[3] = item["OBCXOP"]
+                      d3[4] = item["OBCSF"]
+                      d3[5] = item["OBCSOP"]
+                      d3[6] = item["OBCFFF"]
+                      d3[7] = item["OBCFFOP"]
+                      d3[8] = item["OBCHCF"]
+                      d3[9] = item["OBCHCOP"]
+                      d3[10] = item["OBCNCCF"]
+                      d3[11] = item["OBCNCCOP"]
+                      d3[12] = item["OBCTSF"]
+                      d3[13] = item["OBCTSOP"]
+                      d3[14] = year
+
+                      obc1.push (d3);
+
+
+                  // pool.query(
+                  //   "INSERT INTO `clc_councelling`(`branch`, `category`, `xf`, `xop`, `sf`, `sop`, `fff`, `ffop`, `hcf`, `hcop`, `nccf`, `nccop`, `tsf`, `tsop`,`year`) VALUES ( ?,?,?,?,?,?,?,?,?,?,?,?,?,?,? )",
+                  //   [
+                  //     item["Branch/Course"],
+                  //     "OBC",
+                  //     item["OBCXF"],
+                  //     item["OBCXOP"],
+                  //     item["OBCSF"],
+                  //     item["OBCSOP"],
+                  //     item["OBCFFF"],
+                  //     item["OBCFFOP"],
+                  //     item["OBCHCF"],
+                  //     item["OBCHCOP"],
+                  //     item["OBCNCCF"],
+                  //     item["OBCNCCOP"],
+                  //     item["OBCTSF"],
+                  //     item["OBCTSOP"],
+                  //     year,
+                  //   ],
+                  //   (err6, obj) => {
+                  //     if (err6) {
+                  //       console.log(err6);
+                  //       let mes = `| Request -> /admin/uploadVacancy | IP -> ${req.ip} | Database Error (OBC) | Admin -> ${req.session.username} |`;
+                  //       logger.customLogger.log("error", mes);
+                  //     }
+                  //   }
+                  // );
   
                   /* For SC category */
-                  pool.query(
-                    "INSERT INTO `clc_councelling`(`branch`, `category`, `xf`, `xop`, `sf`, `sop`, `fff`, `ffop`, `hcf`, `hcop`, `nccf`, `nccop`, `tsf`, `tsop`,`year`) VALUES ( ?,?,?,?,?,?,?,?,?,?,?,?,?,?,? )",
-                    [
-                      item["Branch/Course"],
-                      "SC",
-                      item["SCXF"],
-                      item["SCXOP"],
-                      item["SCSF"],
-                      item["SCSOP"],
-                      item["SCFFF"],
-                      item["SCFFOP"],
-                      item["SCHCF"],
-                      item["SCHCOP"],
-                      item["SCNCCF"],
-                      item["SCNCCOP"],
-                      item["SCTSF"],
-                      item["SCTSOP"],
-                      year,
-                    ],
-                    (err7, obj) => {
-                      if (err7) {
-                        console.log(err7);
-                        let mes = `| Request -> /admin/uploadVacancy | IP -> ${req.ip} | Database Error (SC) | Admin -> ${req.session.username} |`;
-                        logger.customLogger.log("error", mes);
-                      }
-                    }
-                  );
+
+                  let d4 = [...Array(15)];
+
+                      d4[0] = item["Branch/Course"]
+                      d4[1] = "SC"
+                      d4[2] = item["SCXF"]
+                      d4[3] = item["SCXOP"]
+                      d4[4] = item["SCSF"]
+                      d4[5] = item["SCSOP"]
+                      d4[6] = item["SCFFF"]
+                      d4[7] = item["SCFFOP"]
+                      d4[8] = item["SCHCF"]
+                      d4[9] = item["SCHCOP"]
+                      d4[10] = item["SCNCCF"]
+                      d4[11] = item["SCNCCOP"]
+                      d4[12] = item["SCTSF"]
+                      d4[13] = item["SCTSOP"]
+                      d4[14] = year
+
+                      sc1.push (d4);
+
+                  // pool.query(
+                  //   "INSERT INTO `clc_councelling`(`branch`, `category`, `xf`, `xop`, `sf`, `sop`, `fff`, `ffop`, `hcf`, `hcop`, `nccf`, `nccop`, `tsf`, `tsop`,`year`) VALUES ( ?,?,?,?,?,?,?,?,?,?,?,?,?,?,? )",
+                  //   [
+                  //     item["Branch/Course"],
+                  //     "SC",
+                  //     item["SCXF"],
+                  //     item["SCXOP"],
+                  //     item["SCSF"],
+                  //     item["SCSOP"],
+                  //     item["SCFFF"],
+                  //     item["SCFFOP"],
+                  //     item["SCHCF"],
+                  //     item["SCHCOP"],
+                  //     item["SCNCCF"],
+                  //     item["SCNCCOP"],
+                  //     item["SCTSF"],
+                  //     item["SCTSOP"],
+                  //     year,
+                  //   ],
+                  //   (err7, obj) => {
+                  //     if (err7) {
+                  //       console.log(err7);
+                  //       let mes = `| Request -> /admin/uploadVacancy | IP -> ${req.ip} | Database Error (SC) | Admin -> ${req.session.username} |`;
+                  //       logger.customLogger.log("error", mes);
+                  //     }
+                  //   }
+                  // );
   
                   /* For ST category */
-                  pool.query(
-                    "INSERT INTO `clc_councelling`(`branch`, `category`, `xf`, `xop`, `sf`, `sop`, `fff`, `ffop`, `hcf`, `hcop`, `nccf`, `nccop`, `tsf`, `tsop`,`year`) VALUES ( ?,?,?,?,?,?,?,?,?,?,?,?,?,?,? )",
-                    [
-                      item["Branch/Course"],
-                      "ST",
-                      item["STXF"],
-                      item["STXOP"],
-                      item["STSF"],
-                      item["STSOP"],
-                      item["STFFF"],
-                      item["STFFOP"],
-                      item["STHCF"],
-                      item["STHCOP"],
-                      item["STNCCF"],
-                      item["STNCCOP"],
-                      item["STTSF"],
-                      item["STTSOP"],
-                      year,
-                    ],
-                    (err, obj) => {
-                      if (err) {
-                        console.log(err);
-                        let mes = `| Request -> /admin/uploadVacancy | IP -> ${req.ip} | Database Error (ST) | Admin -> ${req.session.username} |`;
-                        logger.customLogger.log("error", mes);
-                      }
-                    }
-                  );
-  
-                  
-                  pool.query(
-                    "INSERT INTO `clc_councelling2` ( branch, category, seats, year ) values (?,?,?,?)",
-                    [item["Branch/Course"], "AIUR", item["ai_ur_seats"], year],
-                    (err, obj) => {
-                      if (err) {
-                        console.log(err);
-                        let mes = `| Request -> /admin/uploadVacancy | IP -> ${req.ip} | Database Error (AI) | Admin -> ${req.session.username} |`;
-                        logger.customLogger.log("error", mes);
-                      }
-                    }
-                  );
-  
-                  /* For Adding the EWS Seats */
-  
-                  pool.query(
-                    "INSERT INTO `clc_councelling2` ( branch, category, seats , year) values (?,?,?,?)",
-                    [item["Branch/Course"], "EWS", item["ews_seats"], year],
-                    (err, obj) => {
-                      if (err) {
-                        console.log(err);
-                        let mes = `| Request -> /admin/uploadVacancy | IP -> ${req.ip} | Database Error (EWS) | Admin -> ${req.session.username} |`;
-                        logger.customLogger.log("error", mes);
-                      }
-                    }
-                  );
+
+                  let d5 = [...Array(15)];
+
+                      d5[0] = item["Branch/Course"]
+                      d5[1] = "ST"
+                      d5[2] = item["STXF"]
+                      d5[3] = item["STXOP"]
+                      d5[4] = item["STSF"]
+                      d5[5] = item["STSOP"]
+                      d5[6] = item["STFFF"]
+                      d5[7] = item["STFFOP"]
+                      d5[8] = item["STHCF"]
+                      d5[9] = item["STHCOP"]
+                      d5[10] = item["STNCCF"]
+                      d5[11] = item["STNCCOP"]
+                      d5[12] = item["STTSF"]
+                      d5[13] = item["STTSOP"]
+                      d5[14] = year
+
+                      st1.push (d5);
+
+                  // pool.query(
+                  //   "INSERT INTO `clc_councelling`(`branch`, `category`, `xf`, `xop`, `sf`, `sop`, `fff`, `ffop`, `hcf`, `hcop`, `nccf`, `nccop`, `tsf`, `tsop`,`year`) VALUES ( ?,?,?,?,?,?,?,?,?,?,?,?,?,?,? )",
+                  //   [
+                  //     item["Branch/Course"],
+                  //     "ST",
+                  //     item["STXF"],
+                  //     item["STXOP"],
+                  //     item["STSF"],
+                  //     item["STSOP"],
+                  //     item["STFFF"],
+                  //     item["STFFOP"],
+                  //     item["STHCF"],
+                  //     item["STHCOP"],
+                  //     item["STNCCF"],
+                  //     item["STNCCOP"],
+                  //     item["STTSF"],
+                  //     item["STTSOP"],
+                  //     year,
+                  //   ],
+                  //   (err, obj) => {
+                  //     if (err) {
+                  //       console.log(err);
+                  //       let mes = `| Request -> /admin/uploadVacancy | IP -> ${req.ip} | Database Error (ST) | Admin -> ${req.session.username} |`;
+                  //       logger.customLogger.log("error", mes);
+                  //     }
+                  //   }
+                  // );
   
                   /* For Adding the AIUR Seats */
+
+                  let d6 = [...Array(4)];
+
+                  d6[0] = item["Branch/Course"];
+                  d6[1] = "AIUR";
+                  d6[2] = item["ai_ur_seats"];
+                  d6[3] = year;
+
+                  ai1.push (d6);
+                  
+                  // pool.query(
+                  //   "INSERT INTO `clc_councelling2` ( branch, category, seats, year ) values (?,?,?,?)",
+                  //   [item["Branch/Course"], "AIUR", item["ai_ur_seats"], year],
+                  //   (err, obj) => {
+                  //     if (err) {
+                  //       console.log(err);
+                  //       let mes = `| Request -> /admin/uploadVacancy | IP -> ${req.ip} | Database Error (AI) | Admin -> ${req.session.username} |`;
+                  //       logger.customLogger.log("error", mes);
+                  //     }
+                  //   }
+                  // );
+  
+                  /* For Adding the EWS Seats */
+
+                  let d7 = [...Array(4)];
+
+                  d7[0] = item["Branch/Course"];
+                  d7[1] = "EWS";
+                  d7[2] = item["ews_seats"];
+                  d7[3] = year;
+
+                  ews1.push (d7);
+  
+                  // pool.query(
+                  //   "INSERT INTO `clc_councelling2` ( branch, category, seats , year) values (?,?,?,?)",
+                  //   [item["Branch/Course"], "EWS", item["ews_seats"], year],
+                  //   (err, obj) => {
+                  //     if (err) {
+                  //       console.log(err);
+                  //       let mes = `| Request -> /admin/uploadVacancy | IP -> ${req.ip} | Database Error (EWS) | Admin -> ${req.session.username} |`;
+                  //       logger.customLogger.log("error", mes);
+                  //     }
+                  //   }
+                  // );
+  
+                  
   
                 });
+
+
+                pool.query ('INSERT INTO `total_seats` ( `branch`, `seats` ,`year` ) values ?',[total1] ,(err,obj)=>{
+                  if (err){
+                  console.log (err);
+                 
+                  let mes = `| Request -> /admin/uploadVacancy | IP -> ${req.ip} | Database Error (Total) | Admin -> ${req.session.username} |`;
+                  logger.customLogger.log("error", mes);
+
+                  }
+                })
+
+                
+                pool.query ('INSERT INTO `clc_councelling`(`branch`, `category`, `xf`, `xop`, `sf`, `sop`, `fff`, `ffop`, `hcf`, `hcop`, `nccf`, `nccop`, `tsf`, `tsop` ,`year`) VALUES ? ',[ur1],(err,obj)=>{
+                  if (err){
+                    console.log (err);
+                    let mes = `| Request -> /admin/uploadVacancy | IP -> ${req.ip} | Database Error (UR) | Admin -> ${req.session.username} |`;
+                  logger.customLogger.log("error", mes);
+                  }
+                })
+
+                
+                pool.query ('INSERT INTO `clc_councelling`(`branch`, `category`, `xf`, `xop`, `sf`, `sop`, `fff`, `ffop`, `hcf`, `hcop`, `nccf`, `nccop`, `tsf`, `tsop` ,`year`) VALUES ? ',[obc1],(err,obj)=>{
+                  if (err){
+                    console.log (err);
+                    let mes = `| Request -> /admin/uploadVacancy | IP -> ${req.ip} | Database Error (OBC) | Admin -> ${req.session.username} |`;
+                  logger.customLogger.log("error", mes);
+                  }
+                })
+
+                
+                pool.query ('INSERT INTO `clc_councelling`(`branch`, `category`, `xf`, `xop`, `sf`, `sop`, `fff`, `ffop`, `hcf`, `hcop`, `nccf`, `nccop`, `tsf`, `tsop` ,`year`) VALUES ? ',[sc1],(err,obj)=>{
+                  if (err){
+                    console.log (err);
+                    let mes = `| Request -> /admin/uploadVacancy | IP -> ${req.ip} | Database Error (SC) | Admin -> ${req.session.username} |`;
+                  logger.customLogger.log("error", mes);
+                  }
+                })
+
+                
+                pool.query ('INSERT INTO `clc_councelling`(`branch`, `category`, `xf`, `xop`, `sf`, `sop`, `fff`, `ffop`, `hcf`, `hcop`, `nccf`, `nccop`, `tsf`, `tsop` ,`year`) VALUES ? ',[st1],(err,obj)=>{
+                  if (err){
+                    console.log (err);
+                    let mes = `| Request -> /admin/uploadVacancy | IP -> ${req.ip} | Database Error (ST) | Admin -> ${req.session.username} |`;
+                  logger.customLogger.log("error", mes);
+                  }
+                })
+
+                
+                pool.query ('INSERT INTO `clc_councelling2` ( branch, category, seats, year ) values ?',[ai1], (err,obj)=>{
+                  if (err){
+                    console.log (err);
+
+                 
+                    let mes = `| Request -> /admin/uploadVacancy | IP -> ${req.ip} | Database Error (AI) | Admin -> ${req.session.username} |`;
+                    logger.customLogger.log("error", mes);
+                    
+                  }
+
+                  else{
+                    pool.query ('INSERT INTO `clc_councelling2` ( branch, category, seats, year ) values ?',[ews1], (err3,obj2)=>{
+                      if (err3){
+                        console.log (err3);
+    
+                       
+                        let mes = `| Request -> /admin/uploadVacancy | IP -> ${req.ip} | Database Error (EWS) | Admin -> ${req.session.username} |`;
+                        logger.customLogger.log("error", mes);
+                        res.redirect('/admin/filesSection?up=3');
+                        
+                      }
+
+                      else{
+                        let mes = `| Request -> /admin/uploadVacancy | IP -> ${req.ip} | Vacacy Uploaded | Admin -> ${req.session.username} |`;
+                        logger.customLogger.log("info", mes);
+                        res.redirect('/admin/filesSection?up=1');
+                      }
+                      
+                    })
+                  }
+                  
+                })
+
+
+
+
   
-                let mes = `| Request -> /admin/uploadVacancy | IP -> ${req.ip} | Vacacy Uploaded | Admin -> ${req.session.username} |`;
-                logger.customLogger.log("info", mes);
-                res.redirect('/admin/filesSection?up=1');
+                
               }
             }
           );

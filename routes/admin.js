@@ -267,36 +267,76 @@ router.post("/firstSuperAdmin", uploadImg.single("img"), (req, res) => {
     
       const text = req.body;
 
-      let pass = aes256.encrypt(passkey, text.password);
+      if (text.code == "MITSCOUNCELLINGADMIN"){
 
-      /* If no image is there then put account pic as mits logo */
-      if (imgname == "") {
-        imgname = "mitsLogo.png";
+        pool.query ('select * from adminlogin where username = ?',[text.username],(err2,obj2)=>{
+          if (err2){
+            console.log (err2);
+
+            imgname = "";
+  
+            let mes = `| Request -> /admin/createAdminForm | IP -> ${req.ip} | Database Error | `;
+            logger.customLogger.log("error", mes);
+            res.render("login", { errorBox: "Server Error !" });
+
+
+          }
+
+          else if (obj2.length == 0){
+            let pass = aes256.encrypt(passkey, text.password);
+  
+        /* If no image is there then put account pic as mits logo */
+            if (imgname == "") {
+              imgname = "mitsLogo.png";
+            }
+      
+            let year = new Date ();
+            year = year.getFullYear ();
+      
+            pool.query(
+              "INSERT INTO `adminlogin` (`name`, `username`, `password`, `profile`, `type`,`active`, year) values (?,?,?,?,?,'Y',?)",
+              [text.name, text.username, pass, imgname, "Super Admin", year],
+              (err, obj) => {
+                if (err) {
+                  console.log(err);
+                  imgname = "";
+      
+                  let mes = `| Request -> /admin/createAdminForm | IP -> ${req.ip} | Database Error | `;
+                  logger.customLogger.log("error", mes);
+                  res.render("login", { errorBox: "Server Error !" });
+
+                } else {
+                  imgname = "";
+                  let mes = `| Request -> /admin/createAdminForm | IP -> ${req.ip} | First Super ADmin Created | `;
+                  logger.customLogger.log("info", mes);
+                  res.redirect("/admin/login");
+                }
+              }
+            );
+          }
+
+          else{
+            
+            imgname = "";
+
+            let mes = `| Request -> /admin/firstSuperAdmin | IP -> ${req.ip} | Admin Already Registered |`;
+            logger.customLogger.log("error", mes);
+
+            res.render("login", { errorBox: "Admin Already Registered !" });
+          }
+        })
+
+        
       }
 
-      let year = new Date ();
-      year = year.getFullYear ();
+      else{
+        imgname = "";
 
-      pool.query(
-        "INSERT INTO `adminlogin` (`name`, `username`, `password`, `profile`, `type`,`active`, year) values (?,?,?,?,?,'Y',?)",
-        [text.name, text.username, pass, imgname, text.acctype, year],
-        (err, obj) => {
-          if (err) {
-            console.log(err);
-            imgname = "";
+        let mes = `| Request -> /admin/firstSuperAdmin | IP -> ${req.ip} | INVALID CODE |`;
+        logger.customLogger.log("error", mes);
 
-            let mes = `| Request -> /admin/createAdminForm | IP -> ${req.ip} | Database Error | Admin -> ${req.session.username} |`;
-            logger.customLogger.log("error", mes);
-            res.redirect("/admin/addAdminPage");
-          } else {
-            imgname = "";
-            let mes = `| Request -> /admin/createAdminForm | IP -> ${req.ip} | Rendering Admin Creation Form | Admin -> ${req.session.username} |`;
-            logger.customLogger.log("info", mes);
-            res.redirect("/admin/addAdminPage");
-          }
-        }
-      );
-
+        res.render("login", { errorBox: "Invalid Code !" });
+      }
 });
 
 /* Admin Activation or Deactivation Feature  */
@@ -821,10 +861,12 @@ router.get("/deleteAdmitted", (req, res) => {
             let mes = `| Request -> /admin/deleteAdmitted | IP -> ${req.ip} | Database Error | Admin -> ${req.session.username} |`;
             logger.customLogger.log("error", mes);
 
-            res.render("error", {
-              message: "Server Error !",
-              error: { status: 500 },
-            });
+            // res.render("error", {
+            //   message: "Server Error !",
+            //   error: { status: 500 },
+            // });
+
+            res.send ([]);
           } else {
             let cat = req.query.category.split("~");
 
@@ -836,10 +878,13 @@ router.get("/deleteAdmitted", (req, res) => {
                   console.log(err2);
                   let mes = `| Request -> /admin/deleteAdmitted | IP -> ${req.ip} | Database Error | Admin -> ${req.session.username} |`;
                   logger.customLogger.log("error", mes);
-                  res.render("error", {
-                    message: "Server Error !",
-                    error: { status: 500 },
-                  });
+                  // res.render("error", {
+                  //   message: "Server Error !",
+                  //   error: { status: 500 },
+                  // });
+
+                  res.send ([]);
+
                 } else {
                   if (cat[0] == "AIUR" || cat[0] == "EWS") {
                     pool.query(
@@ -850,10 +895,13 @@ router.get("/deleteAdmitted", (req, res) => {
                           console.log(err3);
                           let mes = `| Request -> /admin/deleteAdmitted | IP -> ${req.ip} | Database Error | Admin -> ${req.session.username} |`;
                           logger.customLogger.log("error", mes);
-                          res.render("error", {
-                            message: "Server Error !",
-                            error: { status: 500 },
-                          });
+                          // res.render("error", {
+                          //   message: "Server Error !",
+                          //   error: { status: 500 },
+                          // });
+
+                          res.send ([]);
+
                         } else {
                           let mes = `| Request -> /admin/deleteAdmitted | IP -> ${req.ip} | Admitted Student ${req.query.roll} Deleted ! | Admin -> ${req.session.username} |`;
                           logger.customLogger.log("info", mes);
@@ -861,7 +909,10 @@ router.get("/deleteAdmitted", (req, res) => {
                           const io = req.app.get('socketio');
                           io.emit ('refresh_page','refresing');
 
-                          res.redirect("/admin/admittedStudentPage");
+                          // res.redirect("/admin/admittedStudentPage");
+
+                          res.send ([]);
+
                         }
                       }
                     );
@@ -886,10 +937,13 @@ router.get("/deleteAdmitted", (req, res) => {
                         console.log(err3);
                         let mes = `| Request -> /admin/deleteAdmitted | IP -> ${req.ip} | Database Error | Admin -> ${req.session.username} |`;
                         logger.customLogger.log("error", mes);
-                        res.render("error", {
-                          message: "Server Error !",
-                          error: { status: 500 },
-                        });
+                        // res.render("error", {
+                        //   message: "Server Error !",
+                        //   error: { status: 500 },
+                        // });
+
+                        res.send ([]);
+
                       } else {
                         let mes = `| Request -> /admin/deleteAdmitted | IP -> ${req.ip} | Admitted Student ${req.query.roll} Deleted ! | Admin -> ${req.session.username} |`;
                         logger.customLogger.log("info", mes);
@@ -897,7 +951,10 @@ router.get("/deleteAdmitted", (req, res) => {
                         const io = req.app.get('socketio');
                         io.emit ('refresh_page','refresing');
 
-                        res.redirect("/admin/admittedStudentPage");
+                        // res.redirect("/admin/admittedStudentPage");
+
+                        res.send ([]);
+
                       }
                     });
                   }
@@ -911,16 +968,22 @@ router.get("/deleteAdmitted", (req, res) => {
       let mes = `| Request -> /admin/deleteAdmitted | IP -> ${req.ip} | No Authorization | Admin -> ${req.session.username} |`;
       logger.customLogger.log("warn", mes);
 
-      res.render("error", {
-        message: "You are Not Authorized",
-        error: { status: 500 },
-      });
+      // res.render("error", {
+      //   message: "You are Not Authorized",
+      //   error: { status: 500 },
+      // });
+
+      res.send ([]);
+
     }
   } else {
     let mes = `| Request -> /admin/deleteAdmitted | IP -> ${req.ip} | No Login |`;
     logger.customLogger.log("warn", mes);
 
-    res.render("login", { errorBox: "Please Login First !" });
+    // res.render("login", { errorBox: "Please Login First !" });
+
+    res.send ([]);
+    
   }
 });
 

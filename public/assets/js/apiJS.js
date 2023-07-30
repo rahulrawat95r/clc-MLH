@@ -574,8 +574,20 @@ function SeatConversionData() {
               "Seats have been Converted Successfully !",
               "success"
             );
+
+            
+
+
+            
   
             fetchtableConversion("After");
+
+            document.getElementById("selSubCategory").innerText = "Select Sub Category !";
+            document.getElementById("selSubCategoryOptions").innerHTML = "";
+            document.getElementById("selToCategory").innerText = "To Category";
+            document.getElementById("convertToCatOptions").innerHTML = "";
+
+            updateCat('Select Category','selCategoryOptions')
           } else {
             hideSuccess();
             showError("Server Error !");
@@ -614,8 +626,15 @@ function SeatConversionData() {
               "Seats have been Converted Successfully !",
               "success"
             );
+
+            
   
             fetchtableConversion("After");
+
+            document.getElementById("selSubCategory").innerText = "Select Sub Category !";
+            document.getElementById("selSubCategoryOptions").innerHTML = "";
+            document.getElementById("selToCategory").innerText = "To Category";
+            document.getElementById("convertToCatOptions").innerHTML = "";
           } else {
             hideSuccess();
             showError("Server Error !");
@@ -1138,6 +1157,8 @@ function fetchtableConversion(a) {
             }
 
             swal.fire ('Success','Data Fetched Successfully !','success');
+
+            
 
           });
         }

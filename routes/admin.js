@@ -629,7 +629,9 @@ router.post("/admitStudentForm", (req, res) => {
           text.sname,
           text.sfather,
           text.sphone,
-          text.ssbranch.replaceAll(" ", "_"),
+          // text.ssbranch.replaceAll(" ", "_"),   old 
+
+          text.ssbranch.split(" ").join("_"),   // new 
           text.scategory,
           text.ssubcategory,
           "Not Submitted !",

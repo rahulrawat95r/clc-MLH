@@ -1677,3 +1677,5 @@
 {"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/admitStudentPage | IP -> ::1 | Rendering Admit new Student Page | Admin -> rahulrawat31r@gmail.com |","metadata":{},"timestamp":"23-08-07 11:08:43"}
 {"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/categorySeats | IP -> ::1 | Rendered Seat Status | Admin -> rahulrawat31r@gmail.com | ","metadata":{},"timestamp":"23-08-07 11:08:19"}
 {"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getYearData | IP -> ::1 | Years List Fetched | Admin -> rahulrawat31r@gmail.com ","metadata":{},"timestamp":"23-08-07 11:08:29"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/login | IP -> ::1 | Rendered Login Page |","metadata":{},"timestamp":"23-08-07 19:08:64"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/loginform | IP -> ::1 | Invalid Credentials |","metadata":{},"timestamp":"23-08-07 19:08:07"}

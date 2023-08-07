@@ -811,7 +811,9 @@ router.get("/admittedStudentData", (req, res) => {
         } else {
           for (i = 0; i < obj.length; i++) {
             let cat = obj[i].subcategory;
-            cat = cat.replaceAll(" ", "~");
+            // cat = cat.replaceAll(" ", "~");
+
+            cat = cat.split(" ").join("~");
             // console.log (cat);
             obj[i]["delete"] =
               '<button class="btn btn-danger" onclick=DeleteAlert("/admin/deleteAdmitted?roll=' +
@@ -845,7 +847,8 @@ router.get("/admittedStudentData", (req, res) => {
 router.get("/deleteAdmitted", (req, res) => {
   if (req.session.username) {
     if (req.session.type != "Accountant" && req.session.type != "Normal") {
-      let branch = req.query.branch.replaceAll("_", " ");
+      // let branch = req.query.branch.replaceAll("_", " ");
+      let branch = req.query.branch.split("_").join(" ");;
       let year = new Date();
       year = req.query.year;
 
@@ -2296,8 +2299,10 @@ router.get("/admittedStudentDataFEE", (req, res) => {
         } else {
           for (i = 0; i < obj.length; i++) {
             let cat = obj[i].subcategory;
-            cat = cat.replaceAll(" ", "~");
-            obj[i]["branch"] = obj[i]["branch"].replaceAll("_", " ");
+            // cat = cat.replaceAll(" ", "~");
+            cat = cat.split(" ").join("~");
+            // obj[i]["branch"] = obj[i]["branch"].replaceAll("_", " ");
+            obj[i]["branch"] = obj[i]["branch"].split("_").join(" ");
             // console.log (cat);
             if (obj[i].feereceiptno == 0) {
               obj[i]["delete"] =

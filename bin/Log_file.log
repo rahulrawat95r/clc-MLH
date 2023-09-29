@@ -1,2 +1,33 @@
 {"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/login | IP -> ::1 | Rendered Login Page |","metadata":{},"timestamp":"23-06-25 18:06:59"}
 {"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/categorySeatsData | IP -> ::1 | UR Seats Data Fetched | Admin -> undefined | ","metadata":{},"timestamp":"23-06-25 18:06:38"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/login | IP -> ::1 | Rendered Login Page |","metadata":{},"timestamp":"23-08-10 00:08:91"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/loginform | IP -> ::1 | SuccessFul Login | Admin -> rahulrawat31r@gmail.com |","metadata":{},"timestamp":"23-08-10 00:08:55"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::1 | Dashboard Rendered | Admin -> rahulrawat31r@gmail.com |","metadata":{},"timestamp":"23-08-10 00:08:57"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::1 | Chart data for the dashboard | Admin -> rahulrawat31r@gmail.com |","metadata":{},"timestamp":"23-08-10 00:08:72"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/filesSection | IP -> ::1 | Data Input Files | Admin -> rahulrawat31r@gmail.com |","metadata":{},"timestamp":"23-08-10 00:08:52"}
+{"label":"[ LOGS ]","level":"warn","message":"| Request -> /admin/filesSection | IP -> ::1 | No Login |","metadata":{},"timestamp":"23-08-10 00:08:98"}
+{"label":"[ LOGS ]","level":"warn","message":"| Request -> /admin/filesSection | IP -> ::1 | No Login |","metadata":{},"timestamp":"23-08-10 00:08:74"}
+{"label":"[ LOGS ]","level":"warn","message":"| Request -> /admin/filesSection | IP -> ::1 | No Login |","metadata":{},"timestamp":"23-08-10 00:08:29"}
+{"label":"[ LOGS ]","level":"warn","message":"| Request -> /admin/filesSection | IP -> ::1 | No Login |","metadata":{},"timestamp":"23-08-10 00:08:46"}
+{"label":"[ LOGS ]","level":"warn","message":"| Request -> /admin/filesSection | IP -> ::1 | No Login |","metadata":{},"timestamp":"23-08-10 00:08:45"}
+{"label":"[ LOGS ]","level":"warn","message":"| Request -> /admin/filesSection | IP -> ::1 | No Login |","metadata":{},"timestamp":"23-08-10 00:08:36"}
+{"label":"[ LOGS ]","level":"warn","message":"| Request -> /admin/filesSection | IP -> ::1 | No Login |","metadata":{},"timestamp":"23-08-10 00:08:58"}
+{"label":"[ LOGS ]","level":"warn","message":"| Request -> /admin/filesSection | IP -> ::1 | No Login |","metadata":{},"timestamp":"23-08-10 00:08:74"}
+{"label":"[ LOGS ]","level":"warn","message":"| Request -> /admin/filesSection | IP -> ::1 | No Login |","metadata":{},"timestamp":"23-08-10 00:08:61"}
+{"label":"[ LOGS ]","level":"warn","message":"| Request -> /admin/filesSection | IP -> ::1 | No Login |","metadata":{},"timestamp":"23-08-10 00:08:26"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/loginform | IP -> ::1 | SuccessFul Login | Admin -> rahulrawat31r@gmail.com |","metadata":{},"timestamp":"23-08-10 00:08:18"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::1 | Dashboard Rendered | Admin -> rahulrawat31r@gmail.com |","metadata":{},"timestamp":"23-08-10 00:08:20"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::1 | Chart data for the dashboard | Admin -> rahulrawat31r@gmail.com |","metadata":{},"timestamp":"23-08-10 00:08:30"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/filesSection | IP -> ::1 | Data Input Files | Admin -> rahulrawat31r@gmail.com |","metadata":{},"timestamp":"23-08-10 00:08:60"}
+{"label":"[ LOGS ]","level":"warn","message":"| Request -> /admin/uploadMerit | IP -> ::1 | No Login |","metadata":{},"timestamp":"23-08-10 00:08:82"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/loginform | IP -> ::1 | SuccessFul Login | Admin -> rahulrawat31r@gmail.com |","metadata":{},"timestamp":"23-08-10 00:08:75"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::1 | Dashboard Rendered | Admin -> rahulrawat31r@gmail.com |","metadata":{},"timestamp":"23-08-10 00:08:76"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::1 | Chart data for the dashboard | Admin -> rahulrawat31r@gmail.com |","metadata":{},"timestamp":"23-08-10 00:08:87"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/filesSection | IP -> ::1 | Data Input Files | Admin -> rahulrawat31r@gmail.com |","metadata":{},"timestamp":"23-08-10 00:08:45"}
+{"label":"[ LOGS ]","level":"warn","message":"| Request -> /admin/uploadMerit | IP -> ::1 | No Login |","metadata":{},"timestamp":"23-08-10 00:08:96"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/loginform | IP -> ::1 | SuccessFul Login | Admin -> rahulrawat31r@gmail.com |","metadata":{},"timestamp":"23-08-10 00:08:22"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/dashboard | IP -> ::1 | Dashboard Rendered | Admin -> rahulrawat31r@gmail.com |","metadata":{},"timestamp":"23-08-10 00:08:23"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/getChartData | IP -> ::1 | Chart data for the dashboard | Admin -> rahulrawat31r@gmail.com |","metadata":{},"timestamp":"23-08-10 00:08:31"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/filesSection | IP -> ::1 | Data Input Files | Admin -> rahulrawat31r@gmail.com |","metadata":{},"timestamp":"23-08-10 00:08:76"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/uploadMerit | IP -> ::1 | Merit List Uploaded | Admin -> rahulrawat31r@gmail.com |","metadata":{},"timestamp":"23-08-10 00:08:10"}
+{"label":"[ LOGS ]","level":"info","message":"| Request -> /admin/filesSection | IP -> ::1 | Files Uploaded Sucess | Admin -> rahulrawat31r@gmail.com |","metadata":{},"timestamp":"23-08-10 00:08:11"}

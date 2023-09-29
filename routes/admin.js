@@ -41,7 +41,7 @@ function getFormattedDateTime() {
 /* For storing the images from the google url to server */
 
 function saveImageUrl (imageUrl, imageName){
-  const imagePath = path.join('./public/assets/images/admin', imageName);
+  const imagePath = path.join('../public/assets/images/admin', imageName);
 
   axios({
     url: imageUrl,
@@ -68,7 +68,7 @@ function saveImageUrl (imageUrl, imageName){
 /* For storing IMages  */
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "./public/assets/images/admin");
+    cb(null, "../public/assets/images/admin");
   },
   filename: function (req, file, cb) {
     let ext = file.originalname.split(".");
@@ -83,7 +83,7 @@ const storage = multer.diskStorage({
 /* For storing excel files  */
 const storage2 = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "./public/assets/files");
+    cb(null, "../public/assets/files");
   },
   filename: function (req, file, cb) {
     let ext = file.originalname.split(".");
@@ -1163,7 +1163,7 @@ router.post("/uploadMerit", uploadExcel.single("MERIT_LIST"), (req, res) => {
       year = year.getFullYear();
 
       let data = ExcelToCSV.converter(
-        "./public/assets/files/MERIT_LIST.xlsx"
+        "../public/assets/files/MERIT_LIST.xlsx"
       );
 
 
@@ -1327,7 +1327,7 @@ router.post(
     if (req.session.username) {
       if (req.session.type == "Super Admin") {
         let data = ExcelToCSV.converter(
-          "./public/assets/files/VACANCY_LIST.xlsx"
+          "../public/assets/files/VACANCY_LIST.xlsx"
         );
         
         let year = new Date();
@@ -2543,11 +2543,11 @@ passport.use(
       passReqToCallback: true
     },
     (request, accessToken, refreshToken, profile, done) => {
-        const allowedDomain = 'mitsgwl.ac.in'; // Replace with your allowed domain
+      const allowedDomain = ['mitsgwl.ac.in' , 'gmail.com']; // Replace with your allowed domain
       const userEmail = profile.emails[0].value;
       const userDomain = userEmail.substring(userEmail.lastIndexOf('@') + 1);
       
-      if (userDomain !== allowedDomain) {
+      if (!allowedDomain.includes(userDomain)) {
         return done(null, false, { message: 'Invalid domain' });
       }
 
